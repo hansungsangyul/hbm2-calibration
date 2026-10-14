@@ -11,7 +11,7 @@ authors:
 version: "1.0.0"
 date-released: "2026-10-14"
 license: MIT
-repository-code: "https://github.com/TO-BE-SET/hbm2-calibration"
+repository-code: "https://github.com/hansungsangyul/hbm2-calibration"
 preferred-citation:
   type: article
   title: "Identifiability Limits and Downstream Training Value of Self-Supervised Calibration for Physics-Based Synthetic CT Data: A Diagnostic Case Study on HBM Microbump Nano-CT"
