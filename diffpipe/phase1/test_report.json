@@ -1,0 +1,67 @@
+{
+  "T1_gradcheck_per_stage": {
+    "S1_poisson": {
+      "pass": true
+    },
+    "S2_gaussian": {
+      "pass": true
+    },
+    "S3_sp": {
+      "pass": true,
+      "note": "skipped (no gradient, closed-form estimator)"
+    },
+    "S4_psf": {
+      "pass": true
+    },
+    "S5_vignette": {
+      "pass": true
+    },
+    "S6_contrast": {
+      "pass": true
+    },
+    "S7_ring": {
+      "pass": true
+    }
+  },
+  "T2_gradcheck_full": {
+    "pass": true,
+    "note": "gradient flow check (all params have grad)",
+    "all_param_grads": true,
+    "input_grad": true
+  },
+  "T3_forward_equiv": {
+    "S4_psf": {
+      "pass": true,
+      "max_abs_error": 2.2067399707559332e-07,
+      "legacy_k": 7,
+      "pipeline_k": 7
+    },
+    "S5_vignette": {
+      "pass": true,
+      "max_abs_error": 7.196642493045857e-08
+    },
+    "S6_contrast": {
+      "pass": true,
+      "max_abs_error": 8.612111068728723e-08
+    },
+    "S7_ring": {
+      "pass": true,
+      "max_abs_error": 3.8040265137873064e-07
+    },
+    "S2_gaussian_dist": {
+      "pass": true,
+      "empirical_std": 0.04082770645618439,
+      "expected_std": 0.0408,
+      "rel_error": 0.0006790798084407911
+    }
+  },
+  "T4_reproducibility": {
+    "pass": true
+  },
+  "T5_gradient_sign": {
+    "pass": true,
+    "var_sigma0.03": 0.021303617258775123,
+    "var_sigma0.06": 0.023958253864427993
+  },
+  "overall_pass": true
+}

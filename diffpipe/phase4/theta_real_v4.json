@@ -1,0 +1,163 @@
+{
+  "version": "v4",
+  "bug_fix": "pipeline.py N: softplus\u2192sigmoid-box. v4 = first run with pre-norm + N prior both active.",
+  "prenormalization": {
+    "a": 0.501834,
+    "b": 0.17332
+  },
+  "constraints": {
+    "N_prior": [
+      50.0,
+      1000.0
+    ],
+    "N_reparameterization": "sigmoid-box (forward==display)",
+    "sigma_g_max": 0.042,
+    "sigma_g_min": 0.0001,
+    "in_low_range": [
+      0.0,
+      0.3
+    ],
+    "in_high_range": [
+      0.7,
+      1.0
+    ]
+  },
+  "theta_real_mean": {
+    "N": 52.34899139404297,
+    "sigma_g": 0.04200000315904617,
+    "fwhm": 1.641910235087077,
+    "alpha": 0.47097984949747723,
+    "in_low": 0.004530937410891056,
+    "in_high": 0.7559248208999634,
+    "ring_strength": 0.018303224196036656,
+    "ring_n": 7.924935181935628,
+    "p": 0.0010000000474974513
+  },
+  "theta_real_std": {
+    "N": 0.0,
+    "sigma_g": 0.0,
+    "fwhm": 0.0007840773227006414,
+    "alpha": 0.0003007223660152427,
+    "in_low": 0.00025298667032441915,
+    "in_high": 0.0003473976463774151,
+    "ring_strength": 0.00014382831361929184,
+    "ring_n": 0.0028465714071766314,
+    "p": 0.0
+  },
+  "theta_hat_all": [
+    {
+      "N": 52.34899139404297,
+      "sigma_g": 0.04200000315904617,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.6409482955932617,
+      "alpha": 0.47139012813568115,
+      "in_low": 0.004840918816626072,
+      "in_high": 0.7561953067779541,
+      "out_low": 0.07392367720603943,
+      "out_high": 1.0788346529006958,
+      "ring_strength": 0.018243877217173576,
+      "ring_n": 7.920953273773193
+    },
+    {
+      "N": 52.34899139404297,
+      "sigma_g": 0.04200000315904617,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.6419135332107544,
+      "alpha": 0.4706777334213257,
+      "in_low": 0.0045306626707315445,
+      "in_high": 0.7561447620391846,
+      "out_low": 0.07535097748041153,
+      "out_high": 1.0778204202651978,
+      "ring_strength": 0.018501386046409607,
+      "ring_n": 7.926413536071777
+    },
+    {
+      "N": 52.34899139404297,
+      "sigma_g": 0.04200000315904617,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.6428688764572144,
+      "alpha": 0.4708716869354248,
+      "in_low": 0.004221230745315552,
+      "in_high": 0.7554343938827515,
+      "out_low": 0.07493104040622711,
+      "out_high": 1.0785588026046753,
+      "ring_strength": 0.018164409324526787,
+      "ring_n": 7.927438735961914
+    }
+  ],
+  "theta_manual": {
+    "fwhm": 2.5,
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+  },
+  "n_branch": {
+    "branch": "BOUNDARY_PINNED",
+    "N_hat": 52.34899139404297,
+    "N_bound_tol": 47.5,
+    "n_pinned": true,
+    "n_interior_150_500": false,
+    "message": "N boundary-pinned \u2192 'pre-norm + N prior\ud558\uc5d0\uc11c\ub3c4 \ube44\uc2dd\ubcc4' \ud655\uc815 \u2192 \u00a73.3 \uc11c\uc0ac: Attractor A/B + prior \uac15\uc81c \uc2dc \uacbd\uacc4 \ub3c4\ud53c. D_calib N\u00b7\u03c3_g = manual \uc720\uc9c0"
+  },
+  "gate_v4": {
+    "method": "single synth (no rep avg), real flat mask applied to both",
+    "per_image": [
+      {
+        "img": 0,
+        "real_flat": 0.03697356954216957,
+        "synth_flat_single": 0.025992359966039658,
+        "ratio": 0.7029983928491004
+      },
+      {
+        "img": 1,
+        "real_flat": 0.0392087921500206,
+        "synth_flat_single": 0.02336246892809868,
+        "ratio": 0.5958477077975075
+      },
+      {
+        "img": 2,
+        "real_flat": 0.03116120770573616,
+        "synth_flat_single": 0.031083911657333374,
+        "ratio": 0.997519478412624
+      },
+      {
+        "img": 3,
+        "real_flat": 0.027017539367079735,
+        "synth_flat_single": 0.033620089292526245,
+        "ratio": 1.244380135279513
+      },
+      {
+        "img": 4,
+        "real_flat": 0.032674141228199005,
+        "synth_flat_single": 0.029027678072452545,
+        "ratio": 0.8883991126108182
+      }
+    ],
+    "median_ratio": 0.8883991126108182,
+    "n_pinned": true,
+    "contrast_in_range": true,
+    "pass": false
+  },
+  "config": {
+    "template_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_clean",
+    "real_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_steps": 2000,
+    "batch_size": 8,
+    "n_reps": 3,
+    "lr_default": 0.01,
+    "lr_N": 1.0,
+    "device": "cuda",
+    "seeds": [
+      940000,
+      941000,
+      942000
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "version": "v2",
+  "constraints": {
+    "sigma_g_max": 0.042,
+    "sigma_g_min": 0.0001,
+    "in_low_range": [
+      0.0,
+      0.3
+    ],
+    "in_high_range": [
+      0.7,
+      1.0
+    ],
+    "justification": "sigma_g_max=0.042: 2\u00d7p90 of Gaussian residual from dirty2 flat patches (Poisson sigma\u22480.032 at mu=0.29,N=280 explains most of observed flat noise\u22480.030; Gaussian residual p90=0.021, \u00d72 safety margin). in_low/in_high: physically meaningful black/white point range."
+  },
+  "theta_real_mean": {
+    "N": 5.563767751057942,
+    "sigma_g": 0.04200000315904617,
+    "fwhm": 1.7925148407618205,
+    "alpha": 0.5446456670761108,
+    "in_low": 0.00044476982778481516,
+    "in_high": 0.9996906121571859,
+    "ring_strength": 0.009177690371870995,
+    "ring_n": 7.855103810628255,
+    "p": 0.0010000000474974513
+  },
+  "theta_real_std": {
+    "N": 0.09391318266128579,
+    "sigma_g": 0.0,
+    "fwhm": 0.004110271953162994,
+    "alpha": 0.00032794538749426867,
+    "in_low": 0.0005637427367881404,
+    "in_high": 0.00037372426404009673,
+    "ring_strength": 0.0001221629850190846,
+    "ring_n": 0.0009751354731482207,
+    "p": 0.0
+  },
+  "theta_hat_all": [
+    {
+      "N": 5.676746368408203,
+      "sigma_g": 0.04200000315904617,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.7867077589035034,
+      "alpha": 0.5451003909111023,
+      "in_low": 9.41419493756257e-05,
+      "in_high": 0.9999070167541504,
+      "out_low": 0.17852210998535156,
+      "out_high": 0.8122099041938782,
+      "ring_strength": 0.009343958459794521,
+      "ring_n": 7.85377836227417
+    },
+    {
+      "N": 5.567746639251709,
+      "sigma_g": 0.04200000315904617,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.7956416606903076,
+      "alpha": 0.5443392992019653,
+      "in_low": 0.0,
+      "in_high": 1.0,
+      "out_low": 0.1778198778629303,
+      "out_high": 0.8121188879013062,
+      "ring_strength": 0.009053912945091724,
+      "ring_n": 7.856096267700195
+    },
+    {
+      "N": 5.446810245513916,
+      "sigma_g": 0.04200000315904617,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.7951951026916504,
+      "alpha": 0.5444973111152649,
+      "in_low": 0.0012401675339788198,
+      "in_high": 0.9991648197174072,
+      "out_low": 0.17692731320858002,
+      "out_high": 0.8130832314491272,
+      "ring_strength": 0.009135199710726738,
+      "ring_n": 7.8554368019104
+    }
+  ],
+  "theta_manual": {
+    "fwhm": 2.5,
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+  },
+  "flat_noise_verification": {
+    "real_dirty2_median": 0.03239072486758232,
+    "synth_v2_median": 0.018613526597619057,
+    "ratio": 0.5746560681711719,
+    "pass": true
+  },
+  "config": {
+    "template_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_clean",
+    "real_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_steps": 2000,
+    "batch_size": 8,
+    "n_reps": 3,
+    "lr_default": 0.01,
+    "lr_N": 1.0,
+    "device": "cuda"
+  }
+}

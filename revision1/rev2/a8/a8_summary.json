@@ -1,0 +1,17 @@
+{
+  "n_images": 200,
+  "n_valid": 141,
+  "n_relaxed_valid": 7,
+  "pooled_raw": 2.08235631055506,
+  "pooled_corrected": 2.1213898844285453,
+  "ci95_corrected": [
+    2.0529103862884046,
+    2.1902407560481687
+  ],
+  "iqr_corrected": [
+    1.9419980273939486,
+    2.360155574713332
+  ],
+  "strict_n": 134,
+  "strict_median_corrected": 2.131625171111723
+}

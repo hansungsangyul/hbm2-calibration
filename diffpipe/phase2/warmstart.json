@@ -1,0 +1,17 @@
+{
+  "N_est": 30.31253675716284,
+  "sigma_g_est": 0.16310124196328535,
+  "p_est": 0.10077988731014209,
+  "fwhm_est": 2.5,
+  "alpha_est": 0.35,
+  "in_low_est": 0.05,
+  "in_high_est": 0.9,
+  "out_low_est": 0.1,
+  "out_high_est": 0.9,
+  "ring_strength_est": 0.12,
+  "ring_n_est": 8.0,
+  "vm_fit_slope": 0.03298965071815378,
+  "vm_fit_intercept": 0.026602015129966152,
+  "vm_r_squared": 0.10309486226744813,
+  "n_images_used": 100
+}

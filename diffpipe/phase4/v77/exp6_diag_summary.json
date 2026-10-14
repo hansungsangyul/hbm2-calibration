@@ -1,0 +1,76 @@
+{
+  "sigma_g": 0.041,
+  "fwhm": 1.25,
+  "competence_threshold": 0.8,
+  "any_competent": true,
+  "best_lr": 0.0005,
+  "verdict": "COMPETENT_FOUND",
+  "runs": [
+    {
+      "lr": 0.0001,
+      "seed": 849000,
+      "epochs": 60,
+      "final_val_f1": 0.9417090937495232,
+      "test_id": 0.6896401687990874,
+      "test_ood": 0.5284433728083968,
+      "diverged": false,
+      "competent": false,
+      "wall_min": 82.1673950791359
+    },
+    {
+      "lr": 0.0001,
+      "seed": 849001,
+      "epochs": 60,
+      "final_val_f1": 0.9280289360322058,
+      "test_id": 0.6889818082563579,
+      "test_ood": 0.5687267327448353,
+      "diverged": false,
+      "competent": false,
+      "wall_min": 82.31455110311508
+    },
+    {
+      "lr": 0.0005,
+      "seed": 849100,
+      "epochs": 60,
+      "final_val_f1": 0.9353843918070197,
+      "test_id": 0.2596500139479758,
+      "test_ood": 0.1530813448784656,
+      "diverged": false,
+      "competent": false,
+      "wall_min": 81.43725641568501
+    },
+    {
+      "lr": 0.0005,
+      "seed": 849101,
+      "epochs": 60,
+      "final_val_f1": 0.9461601083166897,
+      "test_id": 0.8170979814603925,
+      "test_ood": 0.5516236942494288,
+      "diverged": false,
+      "competent": true,
+      "wall_min": 81.34694906075795
+    },
+    {
+      "lr": 0.001,
+      "seed": 849200,
+      "epochs": 60,
+      "final_val_f1": 0.943910263478756,
+      "test_id": 0.2663804413168691,
+      "test_ood": 0.16448057090019574,
+      "diverged": false,
+      "competent": false,
+      "wall_min": 80.73852193752924
+    },
+    {
+      "lr": 0.001,
+      "seed": 849201,
+      "epochs": 60,
+      "final_val_f1": 0.9267422244884074,
+      "test_id": 0.816749716643244,
+      "test_ood": 0.5764818654861301,
+      "diverged": false,
+      "competent": true,
+      "wall_min": 81.14152507384618
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "purpose": "지시 25 Q5: out_low/out_high 등가성 검증",
+    "handoff": "HANDOFF_v6.1 지시 25",
+    "date": "2026-07-09"
+  },
+  "config_A": {
+    "label": "v5_actual",
+    "out_low": 0.2515,
+    "out_high": 1.4133,
+    "source": "theta_hat_main rep0-2 mean (theta_real_v5.json)"
+  },
+  "config_B": {
+    "label": "manual_out",
+    "out_low": 0.10,
+    "out_high": 0.90,
+    "source": "pipeline.py _INIT dict L85-86 / d_calib_config.json"
+  },
+  "equivalence_test": {
+    "metric": "pixel-wise MAE (§M 기준)",
+    "n_pairs": 10,
+    "seed_pattern": "990000 + i",
+    "d_AB_values": [0.286312, 0.286987, 0.286763, 0.286868, 0.286658,
+                    0.286482, 0.286809, 0.286678, 0.286738, 0.286630],
+    "d_AB_mean": 0.286693,
+    "d_AB_median": 0.286708,
+    "d_realization_values": [0.033865, 0.033967, 0.033799, 0.033950, 0.033825,
+                              0.034056, 0.033755, 0.033790, 0.033691, 0.033785],
+    "d_realization_mean": 0.033848,
+    "d_realization_median": 0.033812,
+    "ratio": 8.479,
+    "threshold": 1.5,
+    "trigger": true
+  },
+  "calibration_loss_comparison": {
+    "config_A_losses": {"L_vm": 0.020828, "L_nps": 0.029673, "L_rad": 0.005383, "L_hist": 0.005342, "total": 0.061226},
+    "config_B_losses": {"L_vm": 0.031954, "L_nps": 0.502912, "L_rad": 0.006579, "L_hist": 0.001511, "total": 0.542956},
+    "delta": {"L_vm": 0.011126, "L_nps": 0.473239, "L_rad": 0.001196, "L_hist": -0.003831, "total": 0.481730},
+    "L_nps_ratio": 16.95,
+    "note": "L_nps (NPS matching) jumps 17x — out_low/out_high critically affect noise power spectrum"
+  },
+  "verdict": {
+    "trigger_fired": true,
+    "trigger_clause": "지시 25 Q5: d_AB/d_real = 8.48 > 1.5 threshold",
+    "consequence": "§6 Row 1: 지시 25 트리거 발동 → 전체 PENDING_CONSULTATION",
+    "implication": "out_low/out_high exclusion from d_calib materially distorts fitting solution. v5 optimized with out_low≈0.252, out_high≈1.413 but d_calib reports 0.10/0.90. Inconsistency is 8.5x natural noise floor."
+  }
+}

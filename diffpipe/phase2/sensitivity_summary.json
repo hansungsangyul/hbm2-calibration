@@ -1,0 +1,75 @@
+{
+  "baseline_losses": {
+    "L_vm": 0.0017805659772420768,
+    "L_nps": 1.7701153233647346,
+    "L_rad": 0.0146749425039161,
+    "L_hist": 0.011214193858904764
+  },
+  "sensitivity": {
+    "N": {
+      "L_vm": 0.0028,
+      "L_nps": 0.0518,
+      "L_rad": 0.0002,
+      "L_hist": 0.0045
+    },
+    "sigma_g": {
+      "L_vm": 0.0052,
+      "L_nps": 0.0978,
+      "L_rad": 0.0002,
+      "L_hist": 0.009
+    },
+    "p": {
+      "L_vm": 0.0003,
+      "L_nps": 0.0062,
+      "L_rad": 0.0001,
+      "L_hist": 0.0006
+    },
+    "fwhm": {
+      "L_vm": 0.131,
+      "L_nps": 2.6019,
+      "L_rad": 0.0002,
+      "L_hist": 0.1878
+    },
+    "alpha": {
+      "L_vm": 0.0145,
+      "L_nps": 0.0594,
+      "L_rad": 0.3833,
+      "L_hist": 0.1533
+    },
+    "in_low": {
+      "L_vm": 0.0054,
+      "L_nps": 0.1064,
+      "L_rad": 0.3249,
+      "L_hist": 0.0212
+    },
+    "in_high": {
+      "L_vm": 0.137,
+      "L_nps": 2.1551,
+      "L_rad": 6.9745,
+      "L_hist": 0.4601
+    },
+    "ring_strength": {
+      "L_vm": 0.0171,
+      "L_nps": 0.2004,
+      "L_rad": 0.1998,
+      "L_hist": 0.1925
+    }
+  },
+  "param_order": [
+    "N",
+    "sigma_g",
+    "p",
+    "fwhm",
+    "alpha",
+    "in_low",
+    "in_high",
+    "ring_strength"
+  ],
+  "loss_order": [
+    "L_vm",
+    "L_nps",
+    "L_rad",
+    "L_hist"
+  ],
+  "phase2_gate": "FAIL"
+}

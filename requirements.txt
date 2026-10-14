@@ -1,0 +1,10 @@
+# Environment used for the training campaign and revision analyses (Tesla V100, driver 575)
+python==3.10
+torch==2.5.1
+numpy==2.2.6
+scipy==1.15.2
+pandas==2.3.3
+scikit-learn==1.7.2
+matplotlib==3.10.6
+pillow==9.4.0
+# The phase 1-4 calibration runs were executed with torch 2.2.2+cu118 / numpy 1.26.4 (environment "hbm_cudnn").

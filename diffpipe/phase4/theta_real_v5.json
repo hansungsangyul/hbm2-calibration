@@ -1,0 +1,190 @@
+{
+  "version": "v5",
+  "design": "Tier 1 freeze (N, \u03c3_g, p = \uc804\uc791 \uc2e4\uce21). Tier 2 = fwhm, alpha, in_low, in_high, ring.",
+  "tier1_frozen": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001
+  },
+  "prenormalization": {
+    "a": 0.501834,
+    "b": 0.17332
+  },
+  "theta_real_mean": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 1.4247689644495647,
+    "alpha": 0.49725666642189026,
+    "in_low": 0.0038676783442497253,
+    "in_high": 0.702070415019989,
+    "ring_strength": 0.10123641043901443,
+    "ring_n": 7.986629645029704
+  },
+  "theta_real_std": {
+    "N": 0.0,
+    "sigma_g": 0.0,
+    "p": 0.0,
+    "fwhm": 0.00041348891091203476,
+    "alpha": 0.00034163643438919544,
+    "in_low": 0.000732086725930244,
+    "in_high": 0.00015323282672604797,
+    "ring_strength": 0.0003209999384233533,
+    "ring_n": 0.005455766338706166
+  },
+  "theta_hat_main": [
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.425251841545105,
+      "alpha": 0.4968857169151306,
+      "in_low": 0.0037087188102304935,
+      "in_high": 0.7020885944366455,
+      "out_low": 0.2518591284751892,
+      "out_high": 1.4127362966537476,
+      "ring_strength": 0.10168416798114777,
+      "ring_n": 7.993534088134766
+    },
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.424813151359558,
+      "alpha": 0.4977102279663086,
+      "in_low": 0.0048331464640796185,
+      "in_high": 0.7022483348846436,
+      "out_low": 0.2511273920536041,
+      "out_high": 1.4138561487197876,
+      "ring_strength": 0.10094775259494781,
+      "ring_n": 7.980195045471191
+    },
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.4242419004440308,
+      "alpha": 0.49717405438423157,
+      "in_low": 0.003061169758439064,
+      "in_high": 0.701874315738678,
+      "out_low": 0.2514200806617737,
+      "out_high": 1.4132405519485474,
+      "ring_strength": 0.10107731074094772,
+      "ring_n": 7.986159801483154
+    }
+  ],
+  "theta_hat_perturb": {
+    "lo": {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.4230122566223145,
+      "alpha": 0.4945652484893799,
+      "in_low": 0.006735765840858221,
+      "in_high": 0.7044963836669922,
+      "out_low": 0.2538875341415405,
+      "out_high": 1.4224928617477417,
+      "ring_strength": 0.10165537893772125,
+      "ring_n": 7.99429988861084
+    },
+    "hi": {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.4244673252105713,
+      "alpha": 0.49849244952201843,
+      "in_low": 0.0054421573877334595,
+      "in_high": 0.7022168040275574,
+      "out_low": 0.2506681978702545,
+      "out_high": 1.415529727935791,
+      "ring_strength": 0.10175353288650513,
+      "ring_n": 7.998559951782227
+    }
+  },
+  "theta_manual": {
+    "fwhm": 2.5,
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+  },
+  "branch_v5": {
+    "branch": "DIFFERENT_FROM_MANUAL",
+    "fwhm_hat": 1.4247689644495647,
+    "fwhm_std_pct": 0.029021470935218535,
+    "fwhm_perturb_lo": 1.4230122566223145,
+    "fwhm_perturb_hi": 1.4244673252105713,
+    "fwhm_spread": 0.001455068588256836,
+    "bidir_converge": true,
+    "rep_std_ok": true,
+    "in_manual_range": false,
+    "message": "fwhm=1.425 \u2209 [2.3, 2.7] but interior + bidir converge \u2192 dirty2 \uc2e4\uc81c PSF \u2260 manual. \u00a74.1: \uce21\uc815\uac12 \ubcf4\uace0."
+  },
+  "gate_v5": {
+    "method": "single synth (no rep avg), real flat mask; success = interior + rep std < 5%",
+    "per_image": [
+      {
+        "img": 0,
+        "real_flat": 0.03697356954216957,
+        "synth_flat_single": 0.02187906950712204,
+        "ratio": 0.5917489108582887
+      },
+      {
+        "img": 1,
+        "real_flat": 0.0392087921500206,
+        "synth_flat_single": 0.018637055531144142,
+        "ratio": 0.47532847887369445
+      },
+      {
+        "img": 2,
+        "real_flat": 0.03116120770573616,
+        "synth_flat_single": 0.02640017680823803,
+        "ratio": 0.8472128891005172
+      },
+      {
+        "img": 3,
+        "real_flat": 0.027017539367079735,
+        "synth_flat_single": 0.028623882681131363,
+        "ratio": 1.0594555741078673
+      },
+      {
+        "img": 4,
+        "real_flat": 0.032674141228199005,
+        "synth_flat_single": 0.02461014874279499,
+        "ratio": 0.7531995583576505
+      }
+    ],
+    "median_ratio": 0.7531995583576505,
+    "noise_ratio_ok": true,
+    "tier2_success": true,
+    "pass": true
+  },
+  "config": {
+    "template_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_clean",
+    "real_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_steps": 2000,
+    "batch_size": 8,
+    "n_reps_main": 3,
+    "seeds_main": [
+      950000,
+      951000,
+      952000
+    ],
+    "seeds_perturb": {
+      "lo": 953000,
+      "hi": 954000
+    },
+    "fwhm_init_perturb": {
+      "lo": 1.5,
+      "hi": 3.5
+    },
+    "lr_default": 0.01,
+    "device": "cuda"
+  }
+}

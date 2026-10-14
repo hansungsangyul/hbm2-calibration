@@ -1,0 +1,82 @@
+{
+  "version": "v1",
+  "date": "2026-07-08",
+  "rationale": "v4 calibration BOUNDARY_PINNED (N→50 lower bound) → sigma_g center = manual 0.041. Phase diagram is 'assumed physical range sweep' (§5 서두 명시).",
+  "grid": {
+    "sigma_g": {
+      "center": 0.041,
+      "range_multiplier": [0.25, 4.0],
+      "points": [0.01025, 0.0205, 0.041, 0.082, 0.164],
+      "spacing": "log-uniform",
+      "n": 5
+    },
+    "fwhm": {
+      "center": 2.5,
+      "range": [0.625, 10.0],
+      "points": [0.625, 1.25, 2.5, 5.0, 10.0],
+      "spacing": "log-uniform",
+      "n": 5
+    },
+    "fwhm_zero_column": {
+      "fwhm": 0.0,
+      "sigma_g": [0.01025, 0.0205, 0.041, 0.082, 0.164],
+      "note": "G2 조건 (no blur) 재현 — log 그리드에 포함 불가하므로 별도 열"
+    }
+  },
+  "total_cells": 30,
+  "seeds_per_cell": 5,
+  "seed_base": 950000,
+  "seed_formula": "seed = seed_base + cell_idx * 10 + rep_idx",
+  "total_runs": 150,
+  "estimated_hours": 117,
+  "divergence_criterion": {
+    "loss_nan_inf": true,
+    "final_f1_lt": 0.5,
+    "last10epoch_f1_variation_gt": 0.1
+  },
+  "diagnostic_logging": {
+    "grad_relative_variance": {
+      "frequency": "every_epoch",
+      "description": "Relative variance of parameter gradients"
+    },
+    "lambda_max": {
+      "frequency": "every_5_epochs",
+      "description": "Max eigenvalue of U-Net training loss Hessian",
+      "method": "HVP double backward",
+      "fixed_batch_size": 256,
+      "power_iteration": 20,
+      "overhead_limit_pct": 20,
+      "fallback_frequency": 10,
+      "note": "If overhead > 20%, relax to every_10_epochs (pre-authorized)"
+    },
+    "frequency_error": {
+      "frequency": "every_5_epochs",
+      "description": "Frequency error decomposition"
+    }
+  },
+  "fixed_params": {
+    "N": 300,
+    "alpha": 0.525,
+    "in_low": 0.003,
+    "in_high": 0.854,
+    "out_low": 0.10,
+    "out_high": 0.90,
+    "ring_strength": 0.009,
+    "ring_n": 8.6,
+    "p": 0.001,
+    "prenorm_a": 0.501834,
+    "prenorm_b": 0.173320,
+    "note": "N=300 manual (non-identifiable). fwhm/alpha adjusted per §K-4 boundary branch note."
+  },
+  "unet_config": {
+    "epochs": 100,
+    "batch_size": 32,
+    "lr": 1e-4,
+    "weight_decay": 1e-5,
+    "image_size": [320, 512],
+    "num_classes": 4,
+    "in_channels": 3
+  },
+  "phase5_stage": 1,
+  "stage2_plan": "발산율 0↔100% 전환 경계 인접 셀 8-12개 (5 seeds) 배치. 1단계 완료 후 위상도와 함께 검증 인스턴스에 제출."
+}

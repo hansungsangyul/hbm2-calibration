@@ -1,0 +1,159 @@
+{
+  "version": "v3",
+  "prenormalization": {
+    "a": 0.501834,
+    "b": 0.17332,
+    "clean_mean": 0.37551,
+    "clean_std": 0.25087,
+    "dirty2_mean": 0.36176,
+    "dirty2_std": 0.1259,
+    "formula": "x' = a*x + b, closed-form moments matching (not optimized)"
+  },
+  "constraints": {
+    "N_prior": [
+      50.0,
+      1000.0
+    ],
+    "N_reparameterization": "sigmoid box",
+    "sigma_g_max": 0.042,
+    "sigma_g_min": 0.0001,
+    "in_low_range": [
+      0.0,
+      0.3
+    ],
+    "in_high_range": [
+      0.7,
+      1.0
+    ]
+  },
+  "theta_real_mean": {
+    "N": 997.6510620117188,
+    "sigma_g": 0.008256938308477402,
+    "fwhm": 2.5029544035593667,
+    "alpha": 0.5245631138483683,
+    "in_low": 0.002802989872482916,
+    "in_high": 0.8541006048520406,
+    "ring_strength": 0.03140664224823316,
+    "ring_n": 8.604869842529297,
+    "p": 0.0010000000474974513
+  },
+  "theta_real_std": {
+    "N": 0.0,
+    "sigma_g": 0.00010101676124289941,
+    "fwhm": 0.001585689704960105,
+    "alpha": 0.00028132129635689406,
+    "in_low": 0.0009015242424778812,
+    "in_high": 0.0005282070002552118,
+    "ring_strength": 9.35673983116438e-05,
+    "ring_n": 0.005177369364705339,
+    "p": 0.0
+  },
+  "theta_hat_all": [
+    {
+      "N": 997.6510620117188,
+      "sigma_g": 0.00829990953207016,
+      "p": 0.0010000000474974513,
+      "fwhm": 2.5029819011688232,
+      "alpha": 0.524712085723877,
+      "in_low": 0.003260728670284152,
+      "in_high": 0.8535025119781494,
+      "out_low": 0.11923442780971527,
+      "out_high": 0.9742156863212585,
+      "ring_strength": 0.031512483954429626,
+      "ring_n": 8.600825309753418
+    },
+    {
+      "N": 997.6510620117188,
+      "sigma_g": 0.008117462508380413,
+      "p": 0.0010000000474974513,
+      "fwhm": 2.5009987354278564,
+      "alpha": 0.5248081088066101,
+      "in_low": 0.0015435985988005996,
+      "in_high": 0.8547872304916382,
+      "out_low": 0.12151753902435303,
+      "out_high": 0.973922073841095,
+      "ring_strength": 0.03142249956727028,
+      "ring_n": 8.612177848815918
+    },
+    {
+      "N": 997.6510620117188,
+      "sigma_g": 0.008353442884981632,
+      "p": 0.0010000000474974513,
+      "fwhm": 2.504882574081421,
+      "alpha": 0.5241691470146179,
+      "in_low": 0.0036046423483639956,
+      "in_high": 0.8540120720863342,
+      "out_low": 0.12041128426790237,
+      "out_high": 0.9748558402061462,
+      "ring_strength": 0.03128494322299957,
+      "ring_n": 8.601606369018555
+    }
+  ],
+  "theta_manual": {
+    "fwhm": 2.5,
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+  },
+  "gate_v3": {
+    "method": "single synth (no rep avg), real flat mask applied to both",
+    "per_image": [
+      {
+        "img": 0,
+        "real_flat": 0.03697356954216957,
+        "synth_flat_single": 0.033201027661561966,
+        "ratio": 0.8979665223747224
+      },
+      {
+        "img": 1,
+        "real_flat": 0.0392087921500206,
+        "synth_flat_single": 0.029380686581134796,
+        "ratio": 0.7493392417883844
+      },
+      {
+        "img": 2,
+        "real_flat": 0.03116120770573616,
+        "synth_flat_single": 0.039477258920669556,
+        "ratio": 1.266871916309026
+      },
+      {
+        "img": 3,
+        "real_flat": 0.027017539367079735,
+        "synth_flat_single": 0.04410356655716896,
+        "ratio": 1.6324050076487782
+      },
+      {
+        "img": 4,
+        "real_flat": 0.032674141228199005,
+        "synth_flat_single": 0.03758466616272926,
+        "ratio": 1.1502878040538151
+      }
+    ],
+    "median_ratio": 1.1502878040538151,
+    "n_pinned": true,
+    "contrast_in_range": true,
+    "pass": false
+  },
+  "config": {
+    "template_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_clean",
+    "real_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_steps": 2000,
+    "batch_size": 8,
+    "n_reps": 3,
+    "lr_default": 0.01,
+    "lr_N": 1.0,
+    "device": "cuda",
+    "seeds": [
+      920000,
+      921000,
+      922000
+    ]
+  }
+}

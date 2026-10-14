@@ -1,0 +1,40 @@
+{
+  "step1_trace_analysis": {
+    "verdict_prelim": "a",
+    "excursion_steps_pct": 10.5,
+    "max_deviation": 0.062
+  },
+  "step2_perturbed_init": [
+    {
+      "label": "fwhm_init_1.5",
+      "fwhm_init": 1.5,
+      "seed": 930000,
+      "final_fwhm": 2.5006930828094482,
+      "final_N": 997.6510620117188,
+      "fwhm_min": 1.5077773332595825,
+      "fwhm_max": 2.502535343170166,
+      "converged_to_25": true,
+      "anchored_to_init": false,
+      "fwhm_at_500": 2.158560276031494,
+      "fwhm_at_1000": 2.4318630695343018,
+      "fwhm_at_2000": 2.5006930828094482
+    },
+    {
+      "label": "fwhm_init_3.5",
+      "fwhm_init": 3.5,
+      "seed": 931000,
+      "final_fwhm": 2.498382329940796,
+      "final_N": 997.6510620117188,
+      "fwhm_min": 2.4958364963531494,
+      "fwhm_max": 3.539720296859741,
+      "converged_to_25": true,
+      "anchored_to_init": false,
+      "fwhm_at_500": 2.6512868404388428,
+      "fwhm_at_1000": 2.505976676940918,
+      "fwhm_at_2000": 2.498382329940796
+    }
+  ],
+  "final_verdict": "a",
+  "interpretation": "(a) fwhm converges to ~2.5 regardless of init",
+  "paper_action": "fwhm 2.503 \uc2dd\ubcc4 \ud655\uc815: \u00a74.1 \uae30\uc7ac + D_calib \uc801\uc6a9"
+}

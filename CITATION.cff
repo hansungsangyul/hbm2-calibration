@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+title: "Identifiability Limits and Downstream Training Value of Self-Supervised Calibration for Physics-Based Synthetic CT Data: code and summary data"
+authors:
+  - family-names: Rew
+    given-names: Keunho
+  - family-names: Chung
+    given-names: Janghoon
+  - family-names: Lee
+    given-names: Sangyul
+version: "1.0.0"
+date-released: "2026-10-14"
+license: MIT
+repository-code: "https://github.com/TO-BE-SET/hbm2-calibration"
+preferred-citation:
+  type: article
+  title: "Identifiability Limits and Downstream Training Value of Self-Supervised Calibration for Physics-Based Synthetic CT Data: A Diagnostic Case Study on HBM Microbump Nano-CT"
+  authors:
+    - family-names: Rew
+      given-names: Keunho
+    - family-names: Chung
+      given-names: Janghoon
+    - family-names: Lee
+      given-names: Sangyul
+  journal: "IEEE Access"
+  year: 2026
+  notes: "submitted (Access-2026-42084)"

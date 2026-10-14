@@ -1,0 +1,77 @@
+# =====================================================================
+#  HBM Canonical Degradation Config  ==  논문 Table 2 (단일 진실)
+# ---------------------------------------------------------------------
+#  - 코드는 반드시 이 파일만 읽음. 어떤 파라미터도 코드에 하드코딩 금지.
+#  - 생성 시 이 파일이 출력 폴더에 함께 복사 저장됨(데이터-파라미터 영구 짝).
+#  - 각 파라미터는 {mean, std, min, max}로 이미지간 변동을 정의.
+#    sample_check 는 mean 값(대표 강도)으로 렌더링.
+#
+#  ★ 적용 도메인(중요): 모든 열화는 OUTPUT 해상도(검출기 도메인, 314x520)에서
+#    적용한다. (과거 canvas 적용 후 10% 다운스케일 → 노이즈 평균화로
+#    "PSF/S&P 안 보임" 사고. 본 정본은 물리값을 그대로 쓰고 육안 가시성을 보장.)
+#    → 따라서 v3의 poisson_amp(=10) 비물리 보정 계수는 폐기.
+# =====================================================================
+
+meta:
+  domain: output            # output(검출기) 해상도에서 열화 적용
+  output_size: [520, 314]   # (W, H) = canvas(5200x3140) x scale_factor
+  scale_factor: 0.1
+  n_stages: 7               # Beam-hardening 제외(Stage 1b 판정) → 8→7단계
+
+# margin: 측정값(σbg 등) 대비 안전계수. 노이즈 계열 강도에 곱해짐.
+margin: 1.5
+
+# --- 7단계 누적 그룹 (max_stage 기준) ---
+groups:
+  g1_clean:    0   # 열화 없음 (baseline)
+  g2_noise:    3   # Stage 1-3 (Poisson + Gaussian + S&P)
+  g3_artifact: 4   # Stage 1-4 (+ PSF blur)
+  g4_full:     7   # Stage 1-7 (full: +Vignette +Contrast +Ring)
+
+# =====================  Stage 1-6 (기존, 검증된 로직)  =====================
+
+# Stage 1 — Poisson noise (X-ray 광자 통계). N=유효 광자수, 낮을수록 노이즈 큼.
+poisson:
+  N:        {mean: 300.0, std: 40.0, min: 200.0, max: 450.0}
+
+# Stage 2 — Gaussian readout noise. 실측 배경표준편차 sigma_bg x margin.
+gaussian:
+  sigma_bg: 0.0272          # 실측값(검출기 readout)
+  # 적용 sigma = sigma_bg * margin  (= 0.0408 @ margin 1.5), 아래 jitter로 변동
+  sigma_jitter: 0.005       # 이미지간 std 변동폭
+  sigma_min: 0.020
+  sigma_max: 0.060
+
+# Stage 3 — Salt & Pepper (dead/hot pixel). ★물리값 0.1% (v3의 10%는 비물리, 폐기).
+salt_pepper:
+  density:  {mean: 0.0010, std: 0.0003, min: 0.0003, max: 0.0020}
+
+# Stage 4 — PSF Gaussian blur. Dreier 2025: FlatPanel/CMOS PSF ≈ 2~3 검출기 px.
+#           출력해상도가 곧 검출기 그리드이므로 px 값을 그대로 사용. ★육안 확인 핵심.
+psf:
+  fwhm_px:  {mean: 2.5, std: 0.3, min: 2.0, max: 3.2}
+
+# Stage 5 — Vignetting (cone-beam inverse-square + heel effect). 가장자리 어두워짐.
+vignette:
+  alpha:           {mean: 0.35, std: 0.05, min: 0.25, max: 0.50}
+  min_brightness:  0.50
+
+# Stage 6 — Contrast (재구성 window/level).
+contrast:
+  in_low:   {mean: 0.05, std: 0.02, min: 0.02, max: 0.10}
+  in_high:  {mean: 0.90, std: 0.02, min: 0.84, max: 0.96}
+  out_low:  {mean: 0.10, std: 0.03, min: 0.04, max: 0.18}
+  out_high: {mean: 0.90, std: 0.03, min: 0.82, max: 0.96}
+
+# =====================  Stage 7 (신규)  =====================
+# NOTE: Beam-hardening 단계는 Stage 1b에서 제외 확정.
+#   근거: BH는 raw projection 단계 현상이며 FDK 재구성이 보정함(검출/디스플레이
+#   도메인 열화인 본 파이프라인과 적용 도메인이 다름). 또 템플릿이 실측 CT 슬라이스라
+#   BH 물리가 이미 픽셀에 반영됨 → 후처리 cupping은 이중·역적용. R1-2는 서술+ring으로 대응.
+
+# Stage 7 — Ring artifact (검출기 비균일성). Dreier 정량값 없음 → 문헌표준+육안조정.
+#           회전축(이미지 중심) 기준 동심원 변조.
+#           ★ strength는 Stage 1b 비교 후 교수가 확정(현재값은 비교 후보 중 잠정).
+ring:
+  strength: {mean: 0.120, std: 0.020, min: 0.070, max: 0.250}  # 변조 진폭(±%) — 교수 확정 대기
+  n_rings:  {mean: 8.0,   std: 0.0,   min: 8.0,   max: 8.0}     # 반경방향 링 개수(8 고정)

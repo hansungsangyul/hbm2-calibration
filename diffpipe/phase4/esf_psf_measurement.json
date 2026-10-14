@@ -1,0 +1,159 @@
+{
+  "_meta": {
+    "script": "phase4/run_esf_psf.py",
+    "handoff": "HANDOFF_v6.1 \uc9c0\uc2dc 23",
+    "attempt": 3,
+    "method": "Sobel top-5% + connected_components(len\u226520, RMS<1px) + ESF erf-fit (R\u00b2>0.95, fallback 0.90) + bilinear interpolation",
+    "fwhm_formula": "FWHM = 2.3548 * sigma_esf",
+    "profile_half": 8,
+    "change_from_attempt2": "Added bilinear interpolation (scipy.ndimage.map_coordinates order=1) for exact subpixel sampling along edge normal (fixes integer-rounding duplicate-sample bias that caused -16% underestimation)"
+  },
+  "self_validation": {
+    "applied_fwhm": 2.5,
+    "target_range": [
+      2.25,
+      2.75
+    ],
+    "n_seeds": 5,
+    "seeds": [
+      960000,
+      960001,
+      960002,
+      960003,
+      960004
+    ],
+    "results": [
+      {
+        "label": "selfval_00",
+        "n_valid_edge_fits": 81,
+        "n_components_checked": 405,
+        "median_fwhm": 2.30017121810738,
+        "mean_fwhm": 2.2565282957423185,
+        "std_fwhm": 0.2840027356156897,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      },
+      {
+        "label": "selfval_01",
+        "n_valid_edge_fits": 85,
+        "n_components_checked": 399,
+        "median_fwhm": 2.434717512044178,
+        "mean_fwhm": 2.3335656466692196,
+        "std_fwhm": 0.31068167386882733,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      },
+      {
+        "label": "selfval_02",
+        "n_valid_edge_fits": 39,
+        "n_components_checked": 415,
+        "median_fwhm": 2.47545255020788,
+        "mean_fwhm": 2.5702358976580766,
+        "std_fwhm": 0.6004192252282438,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      },
+      {
+        "label": "selfval_03",
+        "n_valid_edge_fits": 29,
+        "n_components_checked": 411,
+        "median_fwhm": 2.472617359130858,
+        "mean_fwhm": 2.3597711308315352,
+        "std_fwhm": 0.2385408700957865,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      },
+      {
+        "label": "selfval_04",
+        "n_valid_edge_fits": 8,
+        "n_components_checked": 408,
+        "median_fwhm": 2.501491108121443,
+        "mean_fwhm": 2.2482573111114887,
+        "std_fwhm": 0.5586334184271132,
+        "sufficient": false,
+        "r2_threshold_used": 0.9,
+        "r2_relaxed": true
+      }
+    ],
+    "overall_median_fwhm": 2.4536674355875183,
+    "pass": true
+  },
+  "real_measurement": {
+    "source": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_images": 5,
+    "results": [
+      {
+        "label": "dirty2_img00",
+        "n_valid_edge_fits": 149,
+        "n_components_checked": 1614,
+        "median_fwhm": 2.056872656568399,
+        "mean_fwhm": 2.0587341239282537,
+        "std_fwhm": 0.832064013578015,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      },
+      {
+        "label": "dirty2_img01",
+        "n_valid_edge_fits": 19,
+        "n_components_checked": 1711,
+        "median_fwhm": 1.2029801037294412,
+        "mean_fwhm": 0.9277182692573732,
+        "std_fwhm": 0.5538285733099266,
+        "sufficient": false,
+        "r2_threshold_used": 0.9,
+        "r2_relaxed": true
+      },
+      {
+        "label": "dirty2_img02",
+        "n_valid_edge_fits": 0,
+        "n_components_checked": 852,
+        "median_fwhm": NaN,
+        "mean_fwhm": NaN,
+        "std_fwhm": NaN,
+        "sufficient": false,
+        "r2_threshold_used": 0.9,
+        "r2_relaxed": true
+      },
+      {
+        "label": "dirty2_img03",
+        "n_valid_edge_fits": 475,
+        "n_components_checked": 753,
+        "median_fwhm": 2.451936829153004,
+        "mean_fwhm": 2.715031927610245,
+        "std_fwhm": 1.0433548696560526,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      },
+      {
+        "label": "dirty2_img04",
+        "n_valid_edge_fits": 169,
+        "n_components_checked": 1173,
+        "median_fwhm": 1.9049847714300863,
+        "mean_fwhm": 2.010714807576456,
+        "std_fwhm": 0.7916317580664505,
+        "sufficient": true,
+        "r2_threshold_used": 0.95,
+        "r2_relaxed": false
+      }
+    ],
+    "valid_count": 3,
+    "per_image_medians": [
+      2.056872656568399,
+      2.451936829153004,
+      1.9049847714300863
+    ],
+    "overall_median_fwhm": 2.056872656568399
+  },
+  "judgment_zone": {
+    "zone": "Row5",
+    "message": "ESF=2.057: [1.1,1.7]\u00b7[2.2,2.8] \uc678\ubd80 \u2192 Row 5 (PENDING_CONSULTATION)",
+    "esf_median": 2.056872656568399
+  },
+  "self_validation_pass": true
+}

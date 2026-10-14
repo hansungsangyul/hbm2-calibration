@@ -1,0 +1,182 @@
+{
+  "version": "v5d",
+  "purpose": "HANDOFF v6.3 \u00a72: fwhm=ESF\ubcf4\uc815\uac12(2.095) \ub3d9\uacb0 \u2192 D_calib \ucd5c\uc885 \uc0b0\ucd9c",
+  "handoff_ref": "HANDOFF_v6.3_esf_ruling.md",
+  "esf_correction": {
+    "esf_real_median": 2.057,
+    "esf_sv_median": 2.454,
+    "esf_applied_fwhm": 2.5,
+    "fwhm_corrected": 2.0955582722086388,
+    "formula": "fwhm_corrected = esf_real_median \u00d7 (applied_fwhm / sv_median)"
+  },
+  "tier1_frozen": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001
+  },
+  "out_frozen": {
+    "out_low": 0.1,
+    "out_high": 0.9
+  },
+  "fwhm_frozen": 2.0955582722086388,
+  "tier2_free": [
+    "alpha",
+    "in_low",
+    "in_high",
+    "ring_strength",
+    "ring_n"
+  ],
+  "prenormalization": {
+    "a": 0.501834,
+    "b": 0.17332
+  },
+  "theta_real_mean": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.0955582722086388,
+    "alpha": 0.05644285554687182,
+    "in_low": 0.27017125487327576,
+    "in_high": 0.699999988079071,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.12466434886058171,
+    "ring_n": 7.948869705200195
+  },
+  "theta_real_std": {
+    "N": 0.0,
+    "sigma_g": 0.0,
+    "p": 0.0,
+    "fwhm": 0.0,
+    "alpha": 0.00018035533419940043,
+    "in_low": 0.0007215962036121201,
+    "in_high": 0.0,
+    "out_low": 0.0,
+    "out_high": 0.0,
+    "ring_strength": 0.0007787116026814882,
+    "ring_n": 8.847696016822622e-05
+  },
+  "theta_hat_reps": [
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 2.0955584049224854,
+      "alpha": 0.05620723217725754,
+      "in_low": 0.2699720561504364,
+      "in_high": 0.699999988079071,
+      "out_low": 0.10000000149011612,
+      "out_high": 0.8999999761581421,
+      "ring_strength": 0.12565994262695312,
+      "ring_n": 7.948943138122559
+    },
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 2.0955584049224854,
+      "alpha": 0.05647609010338783,
+      "in_low": 0.2694040834903717,
+      "in_high": 0.699999988079071,
+      "out_low": 0.10000000149011612,
+      "out_high": 0.8999999761581421,
+      "ring_strength": 0.1245742067694664,
+      "ring_n": 7.948920726776123
+    },
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 2.0955584049224854,
+      "alpha": 0.05664524435997009,
+      "in_low": 0.27113762497901917,
+      "in_high": 0.699999988079071,
+      "out_low": 0.10000000149011612,
+      "out_high": 0.8999999761581421,
+      "ring_strength": 0.12375889718532562,
+      "ring_n": 7.948745250701904
+    }
+  ],
+  "rep_final_losses": [
+    0.20340381562709808,
+    0.20741082727909088,
+    0.20929720997810364
+  ],
+  "v5c_reference": {
+    "fwhm": 1.3563,
+    "alpha": 0.3171,
+    "in_low": 0.1457,
+    "in_high": 0.7,
+    "ring_strength": 0.0284,
+    "ring_n": 7.9314
+  },
+  "comparison_table": [
+    {
+      "param": "alpha",
+      "v5c_mean": 0.3171,
+      "v5d_mean": 0.05644285554687182,
+      "v5d_std": 0.00018035533419940043,
+      "delta": -0.26065714445312815
+    },
+    {
+      "param": "in_low",
+      "v5c_mean": 0.1457,
+      "v5d_mean": 0.27017125487327576,
+      "v5d_std": 0.0007215962036121201,
+      "delta": 0.12447125487327576
+    },
+    {
+      "param": "in_high",
+      "v5c_mean": 0.7,
+      "v5d_mean": 0.699999988079071,
+      "v5d_std": 0.0,
+      "delta": -1.1920928910669204e-08
+    },
+    {
+      "param": "ring_strength",
+      "v5c_mean": 0.0284,
+      "v5d_mean": 0.12466434886058171,
+      "v5d_std": 0.0007787116026814882,
+      "delta": 0.09626434886058172
+    },
+    {
+      "param": "ring_n",
+      "v5c_mean": 7.9314,
+      "v5d_mean": 7.948869705200195,
+      "v5d_std": 8.847696016822622e-05,
+      "delta": 0.017469705200195307
+    }
+  ],
+  "loss_comparison": {
+    "v5c_ref_loss": 0.04013,
+    "v5d_mean_loss": 0.20670395096143088,
+    "delta_abs": 0.16657395096143088,
+    "delta_pct": 415.08584839628924,
+    "note": "fwhm\uc744 \ub178\uc774\uc988 \ucd5c\uc801\uac12(1.356)\uc5d0\uc11c ESF\uac12(2.095)\uc73c\ub85c \uc774\ub3d9 \u2192 loss \uc545\ud654\ub294 \uc815\uc0c1"
+  },
+  "section3_ruling": {
+    "row": 1,
+    "status": "PENDING_CONSULTATION",
+    "row1_details": [
+      "in_high=0.7000\u00b10.0000 (stuck=True, rep_cv=0.000)"
+    ],
+    "ring_strength_mean": 0.12466434886058171,
+    "ring_gt_0p03": true,
+    "approved_by": null
+  },
+  "d_calib_theta": null,
+  "config": {
+    "template_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_clean",
+    "real_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_steps": 2000,
+    "batch_size": 8,
+    "n_reps": 3,
+    "seeds": [
+      980000,
+      981000,
+      982000
+    ],
+    "lr_default": 0.01,
+    "device": "cuda"
+  }
+}

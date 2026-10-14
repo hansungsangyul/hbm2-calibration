@@ -1,0 +1,50 @@
+{
+  "per_condition": {
+    "calib": {
+      "median_pixel_fpr": 0.981494140625,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "manual": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "ab1": {
+      "median_pixel_fpr": 0.98214111328125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "ab2": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "ab3": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "exp3": {
+      "median_pixel_fpr": 0.9821868896484375,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    }
+  },
+  "mannwhitney_calib_vs_manual": {
+    "statistic": 5000.0,
+    "p_value": 1.0,
+    "a_median_nfc": 1.0,
+    "b_median_nfc": 1.0,
+    "verdict": "EQUIVALENT"
+  },
+  "mannwhitney_exp3_vs_manual": {
+    "statistic": 5150.0,
+    "p_value": 0.08274541567687708,
+    "a_median_nfc": 1.0,
+    "b_median_nfc": 1.0,
+    "verdict": "EQUIVALENT"
+  },
+  "verdict": "FPR_ABOVE_THRESHOLD",
+  "fpr_threshold_met": false
+}

@@ -1,0 +1,53 @@
+{
+  "forward_pass": {
+    "L_vm_grad_ok": true,
+    "L_total": 0.9791898131370544,
+    "L_vm": 0.0016471096314489841,
+    "L_nps": 0.9526785612106323,
+    "L_rad": 0.01491751242429018,
+    "L_hist": 0.009946666657924652
+  },
+  "individual_losses": {
+    "L_vm": {
+      "grad_ok": true,
+      "loss_value": 0.0016471096314489841,
+      "grad_abs_max": 3.930491345727205e-07
+    },
+    "L_nps": {
+      "grad_ok": true,
+      "loss_value": 0.9526785612106323,
+      "grad_abs_max": 0.03908161073923111
+    },
+    "L_rad": {
+      "grad_ok": true,
+      "loss_value": 0.01491751242429018,
+      "grad_abs_max": 5.054902794654481e-05
+    },
+    "L_hist": {
+      "grad_ok": true,
+      "loss_value": 0.009946666657924652,
+      "grad_abs_max": 3.2133791592059424e-06
+    }
+  },
+  "sigma_g_sensitivity": {
+    "sigma_g_low": 0.04079999774694443,
+    "sigma_g_high": 0.08159998059272766,
+    "L_vm_low_sigma": 0.001645197393372655,
+    "L_vm_high_sigma": 0.0016322473529726267,
+    "L_vm_changes": true
+  },
+  "pipeline_param_grads": {
+    "N_raw": true,
+    "sigma_g_raw": true,
+    "fwhm_raw": true,
+    "alpha_raw": true,
+    "in_low": true,
+    "in_high": true,
+    "out_low": true,
+    "out_high": true,
+    "ring_strength_raw": true,
+    "ring_n_raw": true
+  },
+  "all_losses_ok": true,
+  "all_params_have_grad": true
+}

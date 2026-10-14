@@ -1,0 +1,36 @@
+{
+  "per_condition": {
+    "calib": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "manual": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "ab1": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "ab2": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    },
+    "ab3": {
+      "median_pixel_fpr": 0.98125,
+      "median_n_false_components": 1.0,
+      "n_samples": 100
+    }
+  },
+  "mannwhitney_calib_vs_manual": {
+    "statistic": 5100.0,
+    "p_value": 0.1583356251099668,
+    "calib_median_nfc": 1.0,
+    "manual_median_nfc": 1.0
+  },
+  "verdict": "EQUIVALENT"
+}

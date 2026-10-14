@@ -1,0 +1,43 @@
+{
+  "measurement_date": "2026-07-08",
+  "single_seed_timing": {
+    "env": "conda:unet (PyTorch 2.5.1, CUDA)",
+    "script": "HBM_paper/hbm_augmentation/train.py --group 1 --epochs 100",
+    "train_epoch_sec": 20.8,
+    "val_epoch_sec": 7.2,
+    "epoch_total_sec": 28.0,
+    "100_epoch_min": 46.7,
+    "train_samples": 1000,
+    "val_samples": 500,
+    "batch_size": 32,
+    "image_size": "314x520",
+    "model": "UNet (in=3, out=4 classes)"
+  },
+  "grid_estimates": {
+    "grid_7x7_5seeds": {
+      "n_runs": 245,
+      "wall_hours_single_gpu": 190.7,
+      "wall_days_single_gpu": 7.9,
+      "note": "7\u00d77=49 param combos \u00d7 5 seeds"
+    },
+    "grid_5x5_5seeds": {
+      "n_runs": 125,
+      "wall_hours_single_gpu": 97.4,
+      "wall_days_single_gpu": 4.1,
+      "note": "5\u00d75=25 param combos \u00d7 5 seeds"
+    },
+    "p4_2_tost": {
+      "n_runs": 40,
+      "wall_hours_single_gpu": 31.1,
+      "note": "20 runs D_calib + 20 runs D_manual (P4.2 TOST)"
+    }
+  },
+  "lambda_max_overhead": {
+    "status": "NOT_MEASURED \u2014 no dedicated script identified in hbm_augmentation/",
+    "action_required": "Identify \u03bb_max computation target (loss Jacobian / spectral norm?) and add measurement"
+  },
+  "recommendation": {
+    "grid_choice": "5x5 (25 combos \u00d7 5 seeds = 125 runs \u2248 4 GPU-days) vs 7x7 (245 runs \u2248 8 GPU-days). 5\u00d75 recommended if coverage is adequate.",
+    "rationale": "Given total project budget and single-GPU infrastructure, 5\u00d75 grid is more tractable. If 7\u00d77 needed for publication resolution, estimate ~8 GPU-days."
+  }
+}

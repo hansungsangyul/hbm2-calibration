@@ -1,0 +1,464 @@
+{
+  "_meta": {
+    "purpose": "Authoritative parameter registry for DegradationPipeline. All nn.Parameter and constant values declared in src/pipeline.py. No parameter may be omitted.",
+    "source_file": "src/pipeline.py",
+    "registered": "2026-07-09",
+    "handoff": "HANDOFF_v6.1 §1 (지시 22)",
+    "last_updated": "2026-07-09",
+    "handoff_v6_2": "HANDOFF_v6.2_out_param_ruling.md — out_low/out_high 영구 동결 확정",
+    "handoff_v6_4": "HANDOFF_v6.4_sigma_post_ruling.md — sigma_post(S5.5) 신규 도입, 레지스트리 갱신"
+  },
+  "params": [
+    {
+      "name": "N",
+      "param_attr": "N_raw",
+      "stage": "S1_poisson",
+      "role": "Poisson photon count (controls shot noise magnitude)",
+      "unit": "photons",
+      "manual_value": 300.0,
+      "manual_source": "전작 실측 (nano-CT)",
+      "bounds": [
+        50.0,
+        1000.0
+      ],
+      "reparam": "sigmoid_box",
+      "physical": "N = 50 + 950 × sigmoid(N_raw)  [src/pipeline.py:161]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": false
+      },
+      "v5_frozen_value": 300.0,
+      "in_d_calib": true,
+      "notes": "v4+: sigmoid-box [50,1000] so display == pipeline value. Tier 1 frozen in v5."
+    },
+    {
+      "name": "sigma_g",
+      "param_attr": "sigma_g_raw",
+      "stage": "S2_gaussian",
+      "role": "Additive Gaussian background noise standard deviation",
+      "unit": "normalized pixel intensity",
+      "manual_value": 0.0408,
+      "manual_source": "전작 실측 (nano-CT, 0.0272 × 1.5)",
+      "bounds": [
+        0.0,
+        null
+      ],
+      "reparam": "softplus",
+      "physical": "sigma_g = softplus(sigma_g_raw)  [src/pipeline.py:167]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": false
+      },
+      "v5_frozen_value": 0.0408,
+      "in_d_calib": true,
+      "notes": "Tier 1 frozen in v5. Non-identifiable with N (v1-v4 showed 3D ridge with fwhm)."
+    },
+    {
+      "name": "p",
+      "param_attr": "p",
+      "stage": "S3_salt_pepper",
+      "role": "Salt & Pepper noise density (fraction of corrupted pixels)",
+      "unit": "fraction",
+      "manual_value": 0.001,
+      "manual_source": "전작 실측 (nano-CT)",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "reparam": "none(frozen)",
+      "physical": "p_val = self.p  [src/pipeline.py:172]; no activation",
+      "is_nn_parameter": true,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": false,
+        "v2": false,
+        "v3": false,
+        "v4": false,
+        "v5": false
+      },
+      "in_d_calib": true,
+      "notes": "requires_grad=False since init [src/pipeline.py:107-110]. Always frozen."
+    },
+    {
+      "name": "fwhm",
+      "param_attr": "fwhm_raw",
+      "stage": "S4_psf_blur",
+      "role": "PSF Gaussian blur full width at half maximum",
+      "unit": "pixels",
+      "manual_value": 2.5,
+      "manual_source": "정성 설정 (전작)",
+      "bounds": [
+        0.0,
+        null
+      ],
+      "reparam": "softplus",
+      "physical": "fwhm = softplus(fwhm_raw); sigma = fwhm/2.355  [src/pipeline.py:185-186]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true
+      },
+      "in_d_calib": true,
+      "notes": "Kernel size _psf_k fixed at __init__ from initial fwhm=2.5 [src/pipeline.py:114-121]. v5 result: 1.4248 (DIFFERENT_FROM_MANUAL)."
+    },
+    {
+      "name": "_psf_k",
+      "param_attr": "_psf_k",
+      "stage": "S4_psf_blur",
+      "role": "PSF convolution kernel size (derived constant, not a Parameter)",
+      "unit": "pixels (odd integer)",
+      "manual_value": 9,
+      "manual_source": "본 연구 도입 (derived: k = max(3, 2*round(3*sigma)+1) from fwhm_init=2.5 → sigma≈1.062 → k=9)",
+      "bounds": null,
+      "reparam": "none(frozen)",
+      "physical": "k = int(2*round(3*sigma)+1), max 3, must be odd [src/pipeline.py:118-121]",
+      "is_nn_parameter": false,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": false,
+        "v2": false,
+        "v3": false,
+        "v4": false,
+        "v5": false
+      },
+      "in_d_calib": false,
+      "notes": "Fixed at __init__ to avoid discrete step in autograd. Recomputed only on new DegradationPipeline() instantiation. k=9 for fwhm_init=2.5."
+    },
+    {
+      "name": "alpha",
+      "param_attr": "alpha_raw",
+      "stage": "S5_vignetting",
+      "role": "Vignetting darkening coefficient (fraction at corner vs center)",
+      "unit": "dimensionless",
+      "manual_value": 0.35,
+      "manual_source": "정성 설정 (전작)",
+      "bounds": [
+        0.0,
+        null
+      ],
+      "reparam": "softplus",
+      "physical": "alpha = softplus(alpha_raw); vig = 1 - alpha*d²/max_d²  [src/pipeline.py:201-213]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true
+      },
+      "in_d_calib": true,
+      "notes": "min_brightness=0.50 clamp applied to vignetting map [src/pipeline.py:131,213]. v5 result: 0.4973."
+    },
+    {
+      "name": "min_brightness",
+      "param_attr": "min_brightness",
+      "stage": "S5_vignetting",
+      "role": "Vignetting floor (minimum allowed pixel value after vignetting)",
+      "unit": "normalized intensity",
+      "manual_value": 0.5,
+      "manual_source": "본 연구 도입",
+      "bounds": null,
+      "reparam": "none(frozen)",
+      "physical": "vig = clamp(vig, min=min_brightness)  [src/pipeline.py:213]; plain float, not nn.Parameter",
+      "is_nn_parameter": false,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": false,
+        "v2": false,
+        "v3": false,
+        "v4": false,
+        "v5": false
+      },
+      "in_d_calib": false,
+      "notes": "Python float constant [src/pipeline.py:131]. Not optimizable."
+    },
+    {
+      "name": "in_low",
+      "param_attr": "in_low",
+      "stage": "S6_contrast",
+      "role": "Contrast linear rescaling — lower input clip point",
+      "unit": "normalized intensity",
+      "manual_value": 0.05,
+      "manual_source": "정성 설정 (전작)",
+      "bounds": "unconstrained (no softplus/sigmoid)",
+      "reparam": "none (unconstrained nn.Parameter)",
+      "physical": "r = (x - in_low)/(in_high - in_low + 1e-8)  [src/pipeline.py:218]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true
+      },
+      "in_d_calib": true,
+      "notes": "No bound enforcement in code. Physical sense: in_low < in_high. v5 result: 0.0039 (near 0, not at boundary in absolute sense). in_d_calib=true but v5 value not propagated due to PARAMS_TIER2 omission — flagged in 지시 25."
+    },
+    {
+      "name": "in_high",
+      "param_attr": "in_high",
+      "stage": "S6_contrast",
+      "role": "Contrast linear rescaling — upper input clip point",
+      "unit": "normalized intensity",
+      "manual_value": 0.9,
+      "manual_source": "정성 설정 (전작)",
+      "bounds": "unconstrained (no softplus/sigmoid)",
+      "reparam": "none (unconstrained nn.Parameter)",
+      "physical": "r = (x - in_low)/(in_high - in_low + 1e-8)  [src/pipeline.py:218]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true
+      },
+      "in_d_calib": true,
+      "notes": "No bound enforcement in code. v5 result: 0.7021. in_d_calib=true but v5 value not propagated due to PARAMS_TIER2 omission — flagged in 지시 25."
+    },
+    {
+      "name": "out_low",
+      "param_attr": "out_low",
+      "stage": "S6_contrast",
+      "role": "Contrast linear rescaling — lower output value",
+      "unit": "normalized intensity",
+      "manual_value": 0.1,
+      "manual_source": "정성 설정 (전작, _INIT dict src/pipeline.py:85)",
+      "bounds": "unconstrained (no softplus/sigmoid)",
+      "reparam": "none(frozen)",
+      "physical": "output = clamp(r*(out_high-out_low)+out_low, 0, 1)  [src/pipeline.py:219]",
+      "is_nn_parameter": true,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true,
+        "v5c": false
+      },
+      "v5_optimized_mean": 0.2514,
+      "in_d_calib": false,
+      "notes": "HANDOFF v6.2 판정: 캘리브레이션 대상에서 영구 제외. requires_grad=False, frozen=0.1. v5에서 최적화됐으나 비물리적 매핑(out_high>1.0) + 스펙 §1.1 미승인 자유도로 기각. NOT in PARAMS_TIER2 in v5 → not saved to d_calib_config theta_real_mean. v5 did optimize it (optimized value ~0.251, per theta_hat_main). Flagged in 지시 25. Phase 5 비스윕 manual 값: 0.10.",
+      "v5c_frozen_value": 0.1
+    },
+    {
+      "name": "out_high",
+      "param_attr": "out_high",
+      "stage": "S6_contrast",
+      "role": "Contrast linear rescaling — upper output value (can exceed 1.0 — clamp applied after)",
+      "unit": "normalized intensity",
+      "manual_value": 0.9,
+      "manual_source": "정성 설정 (전작, _INIT dict src/pipeline.py:86)",
+      "bounds": "unconstrained (no softplus/sigmoid)",
+      "reparam": "none(frozen)",
+      "physical": "output = clamp(r*(out_high-out_low)+out_low, 0, 1)  [src/pipeline.py:219]",
+      "is_nn_parameter": true,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true,
+        "v5c": false
+      },
+      "v5_optimized_mean": 1.413,
+      "in_d_calib": false,
+      "notes": "HANDOFF v6.2 판정: 캘리브레이션 대상에서 영구 제외. requires_grad=False, frozen=0.9. v5에서 최적화됐으나 비물리적 매핑(out_high>1.0) + 스펙 §1.1 미승인 자유도로 기각. NOT in PARAMS_TIER2 in v5 → not saved to d_calib_config. v5 found out_high≈1.413 > 1.0 (physically valid — clamp at stage 6 output, not on out_high itself). Flagged in 지시 25. Phase 5 비스윕 manual 값: 0.90.",
+      "v5c_frozen_value": 0.9
+    },
+    {
+      "name": "sigma_post",
+      "param_attr": "sigma_post",
+      "stage": "S5.5_post_noise",
+      "role": "Post-blur detector noise standard deviation (검출기 전자 노이즈 — blur 후단, contrast 전단)",
+      "unit": "normalized pixel intensity",
+      "manual_value": 0.0,
+      "manual_source": "본 연구 도입 — ESF/NPS 모순 (HANDOFF v6.4 §0.2); 전작 파이프라인 부재",
+      "bounds": [1e-4, 0.1],
+      "reparam": "clamp",
+      "physical": "x = x + sigma_post * eps_post  [src/pipeline.py, _stage55_post_noise]; sigma_post=0 → no-op (bit-identical to legacy 7-stage)",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": false, "v2": false, "v3": false, "v4": false,
+        "v5": false, "v5c": false, "v5d": false, "v5e": true
+      },
+      "in_d_calib": true,
+      "notes": "HANDOFF v6.4 §1.1 신규 도입. vignetting(S5) 후 · contrast(S6) 전 삽입. init=0.01. clamp [1e-4,0.1] in optimizer step. σ_post=0 → bit-identical 검증 완료 (test_pipeline_v5e.py). 민감도: σ_post↔ring 독립 확인 — σ_post dominates L_nps (range 69.5%), ring dominates L_rad (range 72%), ring L_nps 영향 2.3% only."
+    },
+    {
+      "name": "ring_strength",
+      "param_attr": "ring_strength_raw",
+      "stage": "S7_ring",
+      "role": "Ring artifact modulation amplitude (fraction of pixel value)",
+      "unit": "dimensionless",
+      "manual_value": 0.12,
+      "manual_source": "정성 설정 (전작)",
+      "bounds": [
+        0.0,
+        null
+      ],
+      "reparam": "softplus",
+      "physical": "ring_strength = softplus(ring_strength_raw); mod = ring_strength*sin(2π*ring_n*r/rmax)  [src/pipeline.py:223-234]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true
+      },
+      "v5b_frozen_value": 0.009,
+      "in_d_calib": true,
+      "notes": "v1/v2 consensus ≈0.009 (very different from manual 0.12). v5 result: 0.1012 (11.2× v1/v2 consensus, within 1× of manual). Triggers §O협의. v5b freezes to v1/v2 value 0.009 [지시 24]."
+    },
+    {
+      "name": "ring_n",
+      "param_attr": "ring_n_raw",
+      "stage": "S7_ring",
+      "role": "Ring artifact radial frequency (number of ring cycles over radius)",
+      "unit": "cycles",
+      "manual_value": 8.0,
+      "manual_source": "정성 설정 (전작)",
+      "bounds": [
+        0.0,
+        null
+      ],
+      "reparam": "softplus",
+      "physical": "ring_n = softplus(ring_n_raw); mod uses 2π*ring_n  [src/pipeline.py:224,234]",
+      "is_nn_parameter": true,
+      "requires_grad_default": true,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": true
+      },
+      "v5b_frozen_value": 8.6,
+      "in_d_calib": true,
+      "notes": "v1/v2 consensus ≈8.6. v5 result: 7.987 (close to manual 8.0, consistent with v1/v2). v5b freezes to v1/v2 value 8.6 [지시 24]."
+    },
+    {
+      "name": "prenorm_a",
+      "param_attr": null,
+      "stage": "pre_S1",
+      "role": "Pre-normalization scale: x' = a*x + b (applied to clean templates before pipeline)",
+      "unit": "dimensionless",
+      "manual_value": 0.501834,
+      "manual_source": "전작 실측 (real image stats matching)",
+      "bounds": null,
+      "reparam": "none(frozen)",
+      "physical": "x' = prenorm_a * x + prenorm_b (external to pipeline.py, applied in calibration scripts)",
+      "is_nn_parameter": false,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": false
+      },
+      "in_d_calib": true,
+      "notes": "Not in pipeline.py — applied in run_phase4_v*.py before loss computation. Fitted once; frozen v5+. Value from prenorm calibration."
+    },
+    {
+      "name": "prenorm_b",
+      "param_attr": null,
+      "stage": "pre_S1",
+      "role": "Pre-normalization offset: x' = a*x + b",
+      "unit": "dimensionless",
+      "manual_value": 0.17332,
+      "manual_source": "전작 실측 (real image stats matching)",
+      "bounds": null,
+      "reparam": "none(frozen)",
+      "physical": "x' = prenorm_a * x + prenorm_b (external to pipeline.py)",
+      "is_nn_parameter": false,
+      "requires_grad_default": false,
+      "free_in": {
+        "v1": true,
+        "v2": true,
+        "v3": true,
+        "v4": true,
+        "v5": false
+      },
+      "in_d_calib": true,
+      "notes": "See prenorm_a. Frozen since v5."
+    }
+  ],
+  "pipeline_param_collection_lines": {
+    "nn_parameter_declarations": [
+      "N_raw: src/pipeline.py:97-99",
+      "sigma_g_raw: src/pipeline.py:102-104",
+      "p: src/pipeline.py:107-110 (requires_grad=False)",
+      "fwhm_raw: src/pipeline.py:123-125",
+      "alpha_raw: src/pipeline.py:127-130",
+      "in_low: src/pipeline.py:134-136",
+      "in_high: src/pipeline.py:138-140",
+      "out_low: src/pipeline.py:141-143",
+      "out_high: src/pipeline.py:144-145",
+      "ring_strength_raw: src/pipeline.py:148-150",
+      "ring_n_raw: src/pipeline.py:151-153"
+    ],
+    "constants_not_parameters": [
+      "_psf_k: src/pipeline.py:121 (int, derived from fwhm_init at __init__)",
+      "min_brightness: src/pipeline.py:131 (float 0.50)"
+    ],
+    "external_not_in_pipeline_py": [
+      "prenorm_a: calibration scripts (run_phase4_v*.py)",
+      "prenorm_b: calibration scripts (run_phase4_v*.py)"
+    ]
+  },
+  "completeness_check": {
+    "total_nn_parameters": 12,
+    "total_optimizable": 11,
+    "always_frozen": [
+      "p"
+    ],
+    "constants": [
+      "_psf_k",
+      "min_brightness"
+    ],
+    "external": [
+      "prenorm_a",
+      "prenorm_b"
+    ],
+    "total_entries": 15,
+    "verification": "All nn.Parameter declarations in src/pipeline.py L91-153 enumerated. No additional Parameters found in forward(), helper functions, or standalone stage functions."
+  },
+  "phase5_fixed_params": {
+    "note": "비스윕 파라미터 for Phase 5 150 runs (θ_manual, per HANDOFF v6.1 §7.2)",
+    "N": 300.0,
+    "p": 0.001,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+  },
+  "status": "BOOKED",
+  "approved_by": null,
+  "commit": "pending"
+}

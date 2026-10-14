@@ -1,0 +1,110 @@
+{
+  "_meta": {
+    "registered": "2026-07-08",
+    "updated_v6.1": "2026-07-09",
+    "handoff": "HANDOFF_v6.1 §7.1 §7.2",
+    "note": "v6.1 갱신: fwhm 그리드 0 추가(6개), seed 재지정(800000+), fixed params=θ_manual, 발산기준3 medfilt 반영."
+  },
+  "sweep_axes": {
+    "sigma_g": [0.01025, 0.0205, 0.041, 0.082, 0.164],
+    "fwhm": [0, 0.625, 1.25, 2.5, 5.0, 10.0],
+    "note_fwhm0": "fwhm=0 → PSF blur 스테이지 skip (G2 조건: Gaussian 노이즈만)"
+  },
+  "grid_spec": {
+    "n_sigma_g": 5,
+    "n_fwhm": 6,
+    "n_cells": 30,
+    "n_reps": 5,
+    "n_total_runs": 150,
+    "cell_index_formula": "cell_index = i_sigma * 6 + j_fwhm  (i_sigma in 0..4, j_fwhm in 0..5)",
+    "seed_formula": "seed = 800000 + cell_index * 10 + rep  (rep in 0..4)",
+    "run_dir_template": "phase5/runs/sg{i_sigma}_fw{j_fwhm}/rep{rep}/"
+  },
+  "cells": [
+    {"cell_index":  0, "i_sigma": 0, "j_fwhm": 0, "sigma_g": 0.01025, "fwhm": 0.0,   "seeds": [800000, 800001, 800002, 800003, 800004]},
+    {"cell_index":  1, "i_sigma": 0, "j_fwhm": 1, "sigma_g": 0.01025, "fwhm": 0.625, "seeds": [800010, 800011, 800012, 800013, 800014]},
+    {"cell_index":  2, "i_sigma": 0, "j_fwhm": 2, "sigma_g": 0.01025, "fwhm": 1.25,  "seeds": [800020, 800021, 800022, 800023, 800024]},
+    {"cell_index":  3, "i_sigma": 0, "j_fwhm": 3, "sigma_g": 0.01025, "fwhm": 2.5,   "seeds": [800030, 800031, 800032, 800033, 800034]},
+    {"cell_index":  4, "i_sigma": 0, "j_fwhm": 4, "sigma_g": 0.01025, "fwhm": 5.0,   "seeds": [800040, 800041, 800042, 800043, 800044]},
+    {"cell_index":  5, "i_sigma": 0, "j_fwhm": 5, "sigma_g": 0.01025, "fwhm": 10.0,  "seeds": [800050, 800051, 800052, 800053, 800054]},
+    {"cell_index":  6, "i_sigma": 1, "j_fwhm": 0, "sigma_g": 0.0205,  "fwhm": 0.0,   "seeds": [800060, 800061, 800062, 800063, 800064]},
+    {"cell_index":  7, "i_sigma": 1, "j_fwhm": 1, "sigma_g": 0.0205,  "fwhm": 0.625, "seeds": [800070, 800071, 800072, 800073, 800074]},
+    {"cell_index":  8, "i_sigma": 1, "j_fwhm": 2, "sigma_g": 0.0205,  "fwhm": 1.25,  "seeds": [800080, 800081, 800082, 800083, 800084]},
+    {"cell_index":  9, "i_sigma": 1, "j_fwhm": 3, "sigma_g": 0.0205,  "fwhm": 2.5,   "seeds": [800090, 800091, 800092, 800093, 800094]},
+    {"cell_index": 10, "i_sigma": 1, "j_fwhm": 4, "sigma_g": 0.0205,  "fwhm": 5.0,   "seeds": [800100, 800101, 800102, 800103, 800104]},
+    {"cell_index": 11, "i_sigma": 1, "j_fwhm": 5, "sigma_g": 0.0205,  "fwhm": 10.0,  "seeds": [800110, 800111, 800112, 800113, 800114]},
+    {"cell_index": 12, "i_sigma": 2, "j_fwhm": 0, "sigma_g": 0.041,   "fwhm": 0.0,   "seeds": [800120, 800121, 800122, 800123, 800124]},
+    {"cell_index": 13, "i_sigma": 2, "j_fwhm": 1, "sigma_g": 0.041,   "fwhm": 0.625, "seeds": [800130, 800131, 800132, 800133, 800134]},
+    {"cell_index": 14, "i_sigma": 2, "j_fwhm": 2, "sigma_g": 0.041,   "fwhm": 1.25,  "seeds": [800140, 800141, 800142, 800143, 800144]},
+    {"cell_index": 15, "i_sigma": 2, "j_fwhm": 3, "sigma_g": 0.041,   "fwhm": 2.5,   "seeds": [800150, 800151, 800152, 800153, 800154]},
+    {"cell_index": 16, "i_sigma": 2, "j_fwhm": 4, "sigma_g": 0.041,   "fwhm": 5.0,   "seeds": [800160, 800161, 800162, 800163, 800164]},
+    {"cell_index": 17, "i_sigma": 2, "j_fwhm": 5, "sigma_g": 0.041,   "fwhm": 10.0,  "seeds": [800170, 800171, 800172, 800173, 800174]},
+    {"cell_index": 18, "i_sigma": 3, "j_fwhm": 0, "sigma_g": 0.082,   "fwhm": 0.0,   "seeds": [800180, 800181, 800182, 800183, 800184]},
+    {"cell_index": 19, "i_sigma": 3, "j_fwhm": 1, "sigma_g": 0.082,   "fwhm": 0.625, "seeds": [800190, 800191, 800192, 800193, 800194]},
+    {"cell_index": 20, "i_sigma": 3, "j_fwhm": 2, "sigma_g": 0.082,   "fwhm": 1.25,  "seeds": [800200, 800201, 800202, 800203, 800204]},
+    {"cell_index": 21, "i_sigma": 3, "j_fwhm": 3, "sigma_g": 0.082,   "fwhm": 2.5,   "seeds": [800210, 800211, 800212, 800213, 800214]},
+    {"cell_index": 22, "i_sigma": 3, "j_fwhm": 4, "sigma_g": 0.082,   "fwhm": 5.0,   "seeds": [800220, 800221, 800222, 800223, 800224]},
+    {"cell_index": 23, "i_sigma": 3, "j_fwhm": 5, "sigma_g": 0.082,   "fwhm": 10.0,  "seeds": [800230, 800231, 800232, 800233, 800234]},
+    {"cell_index": 24, "i_sigma": 4, "j_fwhm": 0, "sigma_g": 0.164,   "fwhm": 0.0,   "seeds": [800240, 800241, 800242, 800243, 800244]},
+    {"cell_index": 25, "i_sigma": 4, "j_fwhm": 1, "sigma_g": 0.164,   "fwhm": 0.625, "seeds": [800250, 800251, 800252, 800253, 800254]},
+    {"cell_index": 26, "i_sigma": 4, "j_fwhm": 2, "sigma_g": 0.164,   "fwhm": 1.25,  "seeds": [800260, 800261, 800262, 800263, 800264]},
+    {"cell_index": 27, "i_sigma": 4, "j_fwhm": 3, "sigma_g": 0.164,   "fwhm": 2.5,   "seeds": [800270, 800271, 800272, 800273, 800274]},
+    {"cell_index": 28, "i_sigma": 4, "j_fwhm": 4, "sigma_g": 0.164,   "fwhm": 5.0,   "seeds": [800280, 800281, 800282, 800283, 800284]},
+    {"cell_index": 29, "i_sigma": 4, "j_fwhm": 5, "sigma_g": 0.164,   "fwhm": 10.0,  "seeds": [800290, 800291, 800292, 800293, 800294]}
+  ],
+  "fixed_params": {
+    "note": "θ_manual 전체 (pre-norm 미적용, 전작 G2/G4 계보). 레지스트리 manual 값 기준 (configs/param_registry.json).",
+    "N": 300.0,
+    "p": 0.001,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.90,
+    "out_low": 0.10,
+    "out_high": 0.90,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+  },
+  "training": {
+    "epochs": 41,
+    "lambda_max_epochs": [5, 10, 20, 30, 40],
+    "lambda_max_method": "micro_batch_HVP",
+    "lambda_max_total_images": 32,
+    "lambda_max_micro_bs": 4,
+    "lambda_max_power_iter": 10,
+    "lambda_max_early_stop_rel": 0.01,
+    "lambda_max_batch_seed": 950000
+  },
+  "divergence_criteria": {
+    "handoff_ref": "HANDOFF_v6.1 §7.1 (§V 개정)",
+    "1": "any(isnan(loss)) or any(isinf(loss))",
+    "2": "f1_raw[-1] < 0.5",
+    "3": "max(medfilt(f1_raw, k=3)[-10:]) - min(medfilt(f1_raw, k=3)[-10:]) > 0.1  [개정: medfilt k=3]",
+    "3_note": "epoch >= 20 warmup guard 유지. medfilt 추가로 단발 스파이크 false positive 방지.",
+    "output_both": "f1_raw와 f1_filt 모두 results.json에 저장 (민감도 분석용)"
+  },
+  "results_schema": {
+    "cell_id": "sg{i_sigma}_fw{j_fwhm}",
+    "sigma_g": "float",
+    "fwhm": "float",
+    "seed": "int",
+    "epochs": 41,
+    "f1_raw": "[..41 floats..]",
+    "f1_filt": "[..41 floats.. (medfilt k=3)]",
+    "train_loss": "[..41..]",
+    "val_loss": "[..41..]",
+    "grad_rv": "[..41..]",
+    "lambda_max": {"5": "null|float", "10": "null|float", "20": "null|float", "30": "null|float", "40": "null|float"},
+    "diverged": "bool",
+    "divergence_reason": "null|1|2|3",
+    "final_f1": "float",
+    "wallclock_s": "float"
+  },
+  "environment": {
+    "conda_env": "unet",
+    "python": "/home/xiangyue/.conda/envs/unet/bin/python",
+    "workdir": "/mnt/gstore/home/xiangyue/HBM_paper/hbm_augmentation",
+    "required_env_var": "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True"
+  },
+  "status": "BOOKED",
+  "commit": "154a2d8 (66972bc for grid_v1+criterion_revision+registry, 45bb3b71 for d_calib_REVOKED)"
+}

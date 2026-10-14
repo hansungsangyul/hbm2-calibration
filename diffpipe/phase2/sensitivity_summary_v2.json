@@ -1,0 +1,114 @@
+{
+  "baseline_losses": {
+    "L_vm": 0.39215633273124695,
+    "L_nps": 0.13760054111480713,
+    "L_rad": 0.017244532704353333,
+    "L_hist": 0.001676379470154643
+  },
+  "sensitivity": {
+    "N": {
+      "L_vm": 0.0909,
+      "L_nps": 0.0945,
+      "L_rad": 0.0,
+      "L_hist": 0.0075
+    },
+    "sigma_g": {
+      "L_vm": 0.3732,
+      "L_nps": 0.2913,
+      "L_rad": 0.0059,
+      "L_hist": 0.0161
+    },
+    "p": {
+      "L_vm": 0.0169,
+      "L_nps": 0.0554,
+      "L_rad": 0.0015,
+      "L_hist": 0.0115
+    },
+    "fwhm": {
+      "L_vm": 1.2913,
+      "L_nps": 4.2887,
+      "L_rad": 0.002,
+      "L_hist": 0.4035
+    },
+    "alpha": {
+      "L_vm": 0.021,
+      "L_nps": 0.2876,
+      "L_rad": 1.3912,
+      "L_hist": 0.6295
+    },
+    "in_low": {
+      "L_vm": 0.1196,
+      "L_nps": 1.0148,
+      "L_rad": 0.3201,
+      "L_hist": 1.2864
+    },
+    "in_high": {
+      "L_vm": 0.015,
+      "L_nps": 1.1654,
+      "L_rad": 0.0288,
+      "L_hist": 0.5763
+    },
+    "ring_strength": {
+      "L_vm": 0.3201,
+      "L_nps": 0.0863,
+      "L_rad": 0.7033,
+      "L_hist": 0.1497
+    }
+  },
+  "param_order": [
+    "N",
+    "sigma_g",
+    "p",
+    "fwhm",
+    "alpha",
+    "in_low",
+    "in_high",
+    "ring_strength"
+  ],
+  "loss_order": [
+    "L_vm",
+    "L_nps",
+    "L_rad",
+    "L_hist"
+  ],
+  "diagonal_dominance": {
+    "L_vm": {
+      "target": "N or sigma_g in top-2",
+      "top2": [
+        "fwhm",
+        "sigma_g"
+      ],
+      "pass": true
+    },
+    "L_nps": {
+      "target": "fwhm rank-1",
+      "top2": [
+        "fwhm",
+        "in_high"
+      ],
+      "pass": true
+    },
+    "L_rad": {
+      "target": "alpha in top-2",
+      "top2": [
+        "alpha",
+        "ring_strength"
+      ],
+      "pass": true
+    },
+    "L_hist": {
+      "target": "any contrast param rank-1",
+      "top2": [
+        "in_low",
+        "alpha"
+      ],
+      "pass": true
+    }
+  },
+  "phase2b_gate": "PASS",
+  "fixes_applied": [
+    "L_vm: flat-patch filter (50th-pct gradient threshold)",
+    "L_rad: normalized by mean (contrast-invariant)",
+    "contrast perturbation: absolute \u00b10.05 (was \u00d71.2/\u00d70.8)"
+  ]
+}

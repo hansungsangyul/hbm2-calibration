@@ -1,0 +1,3 @@
+config,n_runs,n_obs,median_pixel_fpr,pct5_fpr,min_pixel_fpr,median_false_components,mean_bg_px,total_valid_px,denominator_note
+v5e,20,100,1.0,0.944523,0.861222,1.0,1479.7,160768,padding_excluded_314x512
+zscore,20,100,0.999963,0.997384,0.994433,1.0,79.2,160768,padding_excluded_314x512

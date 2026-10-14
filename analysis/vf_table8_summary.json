@@ -1,0 +1,74 @@
+{
+  "calib": {
+    "condition": "calib",
+    "n_samples": 100,
+    "med_pixel_fpr": 0.98125,
+    "min_pixel_fpr": 0.6804443359375,
+    "med_false_components": 1.0,
+    "class_0_pct": 0.01875,
+    "class_1_pct": 0.9054412841796875,
+    "class_2_pct": 0.017916870117187497,
+    "class_3_pct": 0.0082733154296875,
+    "med_pixel_fpr_before": 0.981494140625
+  },
+  "manual": {
+    "condition": "manual",
+    "n_samples": 100,
+    "med_pixel_fpr": 0.98125,
+    "min_pixel_fpr": 0.979913330078125,
+    "med_false_components": 1.0,
+    "class_0_pct": 0.01875,
+    "class_1_pct": 0.7507415771484375,
+    "class_2_pct": 0.032568359375,
+    "class_3_pct": 0.0134124755859375,
+    "med_pixel_fpr_before": 0.98125
+  },
+  "ab1": {
+    "condition": "ab1",
+    "n_samples": 100,
+    "med_pixel_fpr": 0.98125,
+    "min_pixel_fpr": 0.939129638671875,
+    "med_false_components": 1.0,
+    "class_0_pct": 0.01875,
+    "class_1_pct": 0.9598754882812499,
+    "class_2_pct": 0.0164031982421875,
+    "class_3_pct": 6.103515625e-06,
+    "med_pixel_fpr_before": 0.98214111328125
+  },
+  "ab2": {
+    "condition": "ab2",
+    "n_samples": 100,
+    "med_pixel_fpr": 0.98125,
+    "min_pixel_fpr": 0.979742431640625,
+    "med_false_components": 1.0,
+    "class_0_pct": 0.01875,
+    "class_1_pct": 0.460845947265625,
+    "class_2_pct": 0.03863525390625,
+    "class_3_pct": 0.1512359619140625,
+    "med_pixel_fpr_before": 0.98125
+  },
+  "ab3": {
+    "condition": "ab3",
+    "n_samples": 100,
+    "med_pixel_fpr": 0.98125,
+    "min_pixel_fpr": 0.963946533203125,
+    "med_false_components": 1.0,
+    "class_0_pct": 0.01875,
+    "class_1_pct": 0.3415740966796875,
+    "class_2_pct": 0.0303985595703125,
+    "class_3_pct": 0.07319946289062501,
+    "med_pixel_fpr_before": 0.98125
+  },
+  "exp3": {
+    "condition": "exp3",
+    "n_samples": 100,
+    "med_pixel_fpr": 0.98125,
+    "min_pixel_fpr": 0.850531005859375,
+    "med_false_components": 1.0,
+    "class_0_pct": 0.01875,
+    "class_1_pct": 0.8452697753906251,
+    "class_2_pct": 0.06401367187500001,
+    "class_3_pct": 0.01019287109375,
+    "med_pixel_fpr_before": 0.9821868896484375
+  }
+}

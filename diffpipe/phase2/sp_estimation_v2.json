@@ -1,0 +1,33 @@
+{
+  "n_images": 2000,
+  "v1_global_MAD": {
+    "p_hat_mean": 0.059251,
+    "p_hat_std": 0.039712,
+    "note": "\ucf58\ud150\uce20 \uc624\uc5fc \u2014 outlier\uac00 image content \uacbd\uacc4\uc5d0 \uac78\ub9bc"
+  },
+  "v2_flat_masked": {
+    "p_hat_mean": 0.005983,
+    "p_hat_std": 0.005206,
+    "flat_mask": "gradient magnitude \ud558\uc704 30% (L_nps\uc640 \ub3d9\uc77c \ub9c8\uc2a4\ud06c)",
+    "note": "\ucf58\ud150\uce20 \uc624\uc5fc \uc81c\uac70 \ubc84\uc804"
+  },
+  "theta_manual_p": 0.001,
+  "outlier_location_analysis": {
+    "on_edge_pixels_pct": 28.0,
+    "on_flat_pixels_pct": 72.0,
+    "verdict": "edge\uc5d0 28% \u2014 \ubd80\ubd84 \ucf58\ud150\uce20 \uc624\uc5fc \uc788\uc74c. flat-masked \ucd94\uc815\uc774 \ub354 \uc2e0\ub8b0"
+  },
+  "per_image_sample_v2": [
+    0.00592234198922097,
+    0.0021741793238608527,
+    0.018214110730034296,
+    0.001555609995100441,
+    0.003680793728564429,
+    0.008843704066634003,
+    0.011066878980891719,
+    0.0021741793238608527,
+    0.0021619304262616365,
+    0.0041156295933365995
+  ],
+  "spec_note": "\uc2a4\ud399 \u00a72.3\uc5d0 flat-mask \uc81c\ud55c \ub204\ub77d \u2014 \uc2a4\ud399 \uacb0\ud568(CC \uacfc\uc2e4 \uc544\ub2d8). v2\uac00 \uc218\uc815 \ubc84\uc804."
+}

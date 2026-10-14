@@ -1,0 +1,11 @@
+{
+  "calib_prenorm_ood_mean": 0.6032839139865246,
+  "calib_orig_ood_mean": 0.7870098371524363,
+  "manual_orig_ood_mean": 0.5963795054936781,
+  "manual_prenorm_ood_mean": 0.33313441377728736,
+  "ood_advantage_calib_prenorm_vs_manual_orig": 0.006904408492846459,
+  "n_calib_conv": 20,
+  "n_manual_conv": 20,
+  "verdict": "OOD_ADVANTAGE_LOST",
+  "manuscript_note": "\"\ucd94\ub860 \uc815\ud569\uc740 ID\ub97c \ud68c\ubcf5\uc2dc\ud0a4\ub098 OOD \uc6b0\uc704\ub97c \uc0c1\uc1c4 \u2014 \ud2b8\ub808\uc774\ub4dc\uc624\ud504\ub294 \uc804\ucc98\ub9ac \uc704\uce58\uc758 \uc120\ud0dd\" \uc815\uc9c1 \uc11c\uc220"
+}

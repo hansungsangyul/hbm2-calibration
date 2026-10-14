@@ -1,0 +1,55 @@
+{
+  "v3_ring_strength": 0.03141,
+  "v3_flat_noises": [
+    0.0332,
+    0.02938,
+    0.03948,
+    0.0441,
+    0.03758
+  ],
+  "noring_flat_noises": [
+    0.03289,
+    0.02911,
+    0.03947,
+    0.04409,
+    0.03749
+  ],
+  "drop_ratio": 0.997,
+  "ring_absorption_confirmed": false,
+  "ring_verdict": "\ubd95\uad34 \uc5c6\uc74c \u2014 v3 ring\uc740 flat noise \uc8fc\uc6d0\uc778 \uc544\ub2d8 (\u00a7F \uc608\uce21 \uae30\uac01)",
+  "content_leakage_analysis": {
+    "method": "real flat mask applied to pre-normed template (no pipeline)",
+    "tmpl_std_per_img": [
+      0.0059,
+      0.00611,
+      0.00632,
+      0.0064,
+      0.00599
+    ],
+    "real_std_per_img": [
+      0.03697,
+      0.03921,
+      0.03116,
+      0.02702,
+      0.03267
+    ],
+    "ratio_tmpl_over_real": [
+      0.159,
+      0.156,
+      0.203,
+      0.237,
+      0.183
+    ],
+    "median_tmpl_std": 0.00611,
+    "median_ratio": 0.183
+  },
+  "content_leakage_verdict": "\ucf58\ud150\uce20 \ub204\ucd9c \uc5c6\uc74c \u2014 tmpl content std=0.006 (real noise\uc758 0.2\u00d7 \u2014 \ubb34\uc2dc \uac00\ub2a5)",
+  "residual_noise_gap": {
+    "expected_from_physics": "~0.005 (Poisson N=998 + PSF \uc5b5\uc81c)",
+    "measured_synth": "~0.037",
+    "gap_factor": "~7.4\u00d7",
+    "confirmed_not_ring": true,
+    "confirmed_not_content_leakage": true,
+    "remaining_hypothesis": "PSF-induced edge-bleed from adjacent HBM boundaries into flat patch regions (needs PSF-applied template analysis)"
+  }
+}

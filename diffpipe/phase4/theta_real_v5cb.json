@@ -1,0 +1,160 @@
+{
+  "version": "v5cb",
+  "purpose": "HANDOFF v6.2: v5c + ring \ub3d9\uacb0. \uc720\uc77c \ubcc0\uc778 = ring \ub3d9\uacb0. fwhm \uc5bd\ud798 \uc7ac\ud310\uc815.",
+  "handoff_ref": "HANDOFF_v6.2_out_param_ruling.md",
+  "tier1_frozen": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001
+  },
+  "out_frozen": {
+    "out_low": 0.1,
+    "out_high": 0.9
+  },
+  "ring_frozen": {
+    "ring_strength": 0.009,
+    "ring_n": 8.6,
+    "source": "v1/v2 \ud569\uc758"
+  },
+  "tier2_free": [
+    "fwhm",
+    "alpha",
+    "in_low",
+    "in_high"
+  ],
+  "prenormalization": {
+    "a": 0.501834,
+    "b": 0.17332
+  },
+  "theta_real_mean": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 1.355201005935669,
+    "alpha": 0.32087785998980206,
+    "in_low": 0.14401882390181223,
+    "in_high": 0.699999988079071,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.009,
+    "ring_n": 8.6
+  },
+  "theta_real_std": {
+    "N": 0.0,
+    "sigma_g": 0.0,
+    "p": 0.0,
+    "fwhm": 0.002365073651480531,
+    "alpha": 7.401745944214964e-05,
+    "in_low": 0.0009492740606731593,
+    "in_high": 0.0,
+    "out_low": 0.0,
+    "out_high": 0.0,
+    "ring_strength": 0.0,
+    "ring_n": 0.0
+  },
+  "theta_hat_reps": [
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.3522857427597046,
+      "alpha": 0.3207991421222687,
+      "in_low": 0.14430540800094604,
+      "in_high": 0.699999988079071,
+      "out_low": 0.10000000149011612,
+      "out_high": 0.8999999761581421,
+      "ring_strength": 0.008999999612569809,
+      "ring_n": 8.600000381469727
+    },
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.355238676071167,
+      "alpha": 0.3208574652671814,
+      "in_low": 0.14501135051250458,
+      "in_high": 0.699999988079071,
+      "out_low": 0.10000000149011612,
+      "out_high": 0.8999999761581421,
+      "ring_strength": 0.008999999612569809,
+      "ring_n": 8.600000381469727
+    },
+    {
+      "N": 300.0,
+      "sigma_g": 0.04079999774694443,
+      "p": 0.0010000000474974513,
+      "fwhm": 1.3580785989761353,
+      "alpha": 0.32097697257995605,
+      "in_low": 0.14273971319198608,
+      "in_high": 0.699999988079071,
+      "out_low": 0.10000000149011612,
+      "out_high": 0.8999999761581421,
+      "ring_strength": 0.008999999612569809,
+      "ring_n": 8.600000381469727
+    }
+  ],
+  "v5c_reference": {
+    "fwhm": 1.3563,
+    "alpha": 0.3171,
+    "in_low": 0.1457,
+    "in_high": 0.7,
+    "ring_strength": 0.0284,
+    "ring_n": 7.9314
+  },
+  "comparison_table": [
+    {
+      "param": "fwhm",
+      "manual": 2.5,
+      "v5c_mean": 1.3563,
+      "v5cb_mean": 1.355201005935669,
+      "v5cb_std": 0.002365073651480531,
+      "delta_v5c_v5cb": -0.0010989940643311158
+    },
+    {
+      "param": "alpha",
+      "manual": 0.35,
+      "v5c_mean": 0.3171,
+      "v5cb_mean": 0.32087785998980206,
+      "v5cb_std": 7.401745944214964e-05,
+      "delta_v5c_v5cb": 0.003777859989802068
+    },
+    {
+      "param": "in_low",
+      "manual": 0.05,
+      "v5c_mean": 0.1457,
+      "v5cb_mean": 0.14401882390181223,
+      "v5cb_std": 0.0009492740606731593,
+      "delta_v5c_v5cb": -0.00168117609818777
+    },
+    {
+      "param": "in_high",
+      "manual": 0.9,
+      "v5c_mean": 0.7,
+      "v5cb_mean": 0.699999988079071,
+      "v5cb_std": 0.0,
+      "delta_v5c_v5cb": -1.1920928910669204e-08
+    }
+  ],
+  "fwhm_shift_analysis": {
+    "fwhm_v5c": 1.3563,
+    "fwhm_v5cb": 1.355201005935669,
+    "delta": -0.0010989940643311158,
+    "delta_pct": -0.08102883317336175,
+    "large_shift_flag": false,
+    "interpretation": "fwhm stable (<20% shift) when ring frozen \u2192 fwhm robust to ring constraint."
+  },
+  "config": {
+    "template_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_clean",
+    "real_dir": "/mnt/gstore/home/xiangyue/HBM_paper/download/HBM_dirty2",
+    "n_steps": 2000,
+    "batch_size": 8,
+    "n_reps": 3,
+    "seeds": [
+      975000,
+      976000,
+      977000
+    ],
+    "lr_default": 0.01,
+    "device": "cuda"
+  }
+}
