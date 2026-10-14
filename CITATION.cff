@@ -11,6 +11,7 @@ authors:
 version: "1.0.0"
 date-released: "2026-10-14"
 license: MIT
+doi: 10.5281/zenodo.23368375
 repository-code: "https://github.com/hansungsangyul/hbm2-calibration"
 preferred-citation:
   type: article

@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23368375.svg)](https://doi.org/10.5281/zenodo.23368375)
+
 # hbm2-calibration ??code and summary data for
 
 **Identifiability Limits and Downstream Training Value of Self-Supervised Calibration for Physics-Based Synthetic CT Data: A Diagnostic Case Study on HBM Microbump Nano-CT**
@@ -46,4 +48,4 @@ Code: MIT. Data, logs and protocol documents: CC BY 4.0. See `LICENSE`.
 
 ## Citation
 
-See `CITATION.cff`. Please cite the paper; a Zenodo DOI for this repository is given in the release notes.
+See `CITATION.cff`. Please cite the paper. Archived release: v1.0.0, DOI 10.5281/zenodo.23368375 (https://doi.org/10.5281/zenodo.23368375).
