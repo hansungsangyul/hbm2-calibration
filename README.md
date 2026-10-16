@@ -1,13 +1,15 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23368375.svg)](https://doi.org/10.5281/zenodo.23368375)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23368374.svg)](https://doi.org/10.5281/zenodo.23368374)
 
 # hbm2-calibration ??code and summary data for
 
 **Identifiability Limits and Downstream Training Value of Self-Supervised Calibration for Physics-Based Synthetic CT Data: A Diagnostic Case Study on HBM Microbump Nano-CT**
-K. Rew, J. Chung, S. Lee ??submitted to IEEE Access (Access-2026-42084, resubmission).
+K. Rew, J. Chung, S. Lee ??submitted to IEEE Access (Access-2026-52990, corrected resubmission of Access-2026-42084).
 
 This repository holds the differentiable degradation pipeline, the self-supervised calibrator, every launch script and configuration used in the paper, the run-level results (training trajectories, terminal metrics, per-image confusion counts, calibration traces), the pre-registration/protocol documents, and the analysis scripts that produce the numbers in the manuscript and its supplement.
 
-**What is not included.** The real nano-CT images, the single real defect-free template from which the synthetic training and evaluation images are built, and the synthetic images themselves (which are derived from that template) are confidential and are not deposited. Only per-image summary statistics computed on real images are included. Re-generating the synthetic sets therefore requires the template; everything downstream of the saved results (all tables, figures, and statistics) can be reproduced from this repository alone. Representative trained checkpoints (one per configuration, ~1 GB) are distributed separately as release assets / a Zenodo record (see `checkpoints/README.md`).
+**Correction (v1.1.0, 2026-10-16).** The image set that release v1.0.0 and the resubmitted manuscript described as measured, defect-free nano-CT images (the "real images" of the calibration statistics, the ESF anchor and the false-positive evaluation) is synthetic: it was produced by the MATLAB data-generation scripts of the prior work from a bank of ten measured template crops, with procedurally inserted defects in 72 % of its tiles, and degraded by a separately implemented pipeline. The corrected manuscript calls it the reference set R and treats the calibration as calibration under degradation-model mismatch; the former real-image evaluation is replaced by a pre-registered, content-matched paired evaluation. Everything added for the correction is under `revision2/` (see `revision2/README.md` and `revision2/reference_set_R/R_SPECIFICATION.md`). File and variable names containing `real` elsewhere in this repository refer to R.
+
+**What is not included.** The ten measured template crops and the synthetic images derived from them (the training pool and the images of R) are confidential and are not deposited. The tile-level label files of R, per-image summary statistics on R, and all run-level results are included. Re-generating the synthetic sets therefore requires the templates; everything downstream of the saved results (all tables, figures, and statistics) can be reproduced from this repository alone. Representative trained checkpoints (one per configuration, ~1 GB) are distributed separately as release assets / a Zenodo record (see `checkpoints/README.md`).
 
 ## Layout
 
@@ -23,6 +25,7 @@ This repository holds the differentiable degradation pipeline, the self-supervis
 | `diffpipe/provenance_preregistration.md`, `campaign_closure_*`, `CC_*_report_*.md`, `RESULTS.md` | Pre-registration inventory and campaign reports used for the evidentiary audit | App. A, Table 5 |
 | `f1_recompute_results/` | Dataset-level re-inference of all archived checkpoints: `counts/per_image_counts.csv` (per-run, per-image confusion counts on the three frozen test sets), `f1_dataset_level_runs.csv` | Sec. VI, Supp. S2 |
 | `revision1/` | Revision-stage analyses with their pre-registered protocols (`PREREG_*.md`): `a1_weights` (loss-weight sensitivity), `a2_ident` (Hessian, N-profile, multistart), `a3_esf_low` (AB-4 at f = 1.941, bootstrap), `a4_metrics` (per-class precision/recall, nested bootstrap), `a5_realgap` (matching interventions), `boot_fix`, `holm` (Holm families), `rev2/` (a7/a7fix held-out real-image FPR on 1,750 images, a8 ESF re-measurement on 200 reserved images, a9 tile-level detection, a10 alternative stress sets, a11 profiles/joint starts/curvature) | Sec. IV-C, V, VI, App. A, Supp. S8 |
+| `revision2/` | Correction-stage analyses: tile-label metrics, paired cross-pipeline evaluation (pre-registered), reference-set specification and labels | Sec. III-B, VI-E, Supp. S8.13, S9 |
 | `analysis/` | Manuscript-level aggregation scripts and their outputs (per-class F1, predicted-pixel composition, intensity statistics, real-image FPR summaries, pre-registration audit) | Sec. VI, App. D |
 | `checkpoints/` | Index and SHA-256 sums of the eight representative checkpoints (binaries distributed separately) | Sec. VI |
 
@@ -48,4 +51,4 @@ Code: MIT. Data, logs and protocol documents: CC BY 4.0. See `LICENSE`.
 
 ## Citation
 
-See `CITATION.cff`. Please cite the paper. Archived release: v1.0.0, DOI 10.5281/zenodo.23368375 (https://doi.org/10.5281/zenodo.23368375).
+See `CITATION.cff`. Please cite the paper. Archived releases: v1.0.0 (DOI 10.5281/zenodo.23368375) and v1.1.0 (correction-stage material); concept DOI for all versions 10.5281/zenodo.23368374 (https://doi.org/10.5281/zenodo.23368374).

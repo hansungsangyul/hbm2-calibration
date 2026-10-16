@@ -1,0 +1,142 @@
+{
+ "content": "download/HBM_clean 0251-2000",
+ "seed_rule": "900000+n",
+ "configs": {
+  "D_manual": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.5,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.0,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": false
+  },
+  "AB-1": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.5,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.0,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": true
+  },
+  "AB-2": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.0955582722086388,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.0,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": false
+  },
+  "AB-3": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.0955582722086388,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.0,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": false
+  },
+  "D_calib": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.0955582722086388,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.0,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": true
+  },
+  "D_v5e": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.0955582722086388,
+    "alpha": 0.295997,
+    "in_low": 0.169958,
+    "in_high": 0.7,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "ring_strength": 0.030071,
+    "ring_n": 8.0,
+    "sigma_post": 0.016949
+   },
+   "prenorm_before_degradation": true
+  },
+  "D_sigma_p": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.0955582722086388,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.016949,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": true
+  },
+  "z-score": {
+   "theta": {
+    "N": 300.0,
+    "sigma_g": 0.0408,
+    "p": 0.001,
+    "fwhm": 2.5,
+    "alpha": 0.35,
+    "in_low": 0.05,
+    "in_high": 0.9,
+    "out_low": 0.1,
+    "out_high": 0.9,
+    "sigma_post": 0.0,
+    "ring_strength": 0.12,
+    "ring_n": 8.0
+   },
+   "prenorm_before_degradation": false
+  }
+ }
+}

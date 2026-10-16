@@ -1,0 +1,30 @@
+{
+ "image": "image_0251",
+ "n_normal": 35,
+ "composition": {
+  "A_D_calib": {
+   "background": 57227,
+   "crack": 38609,
+   "open": 34914,
+   "hole": 30018
+  },
+  "A_D_manual": {
+   "background": 56019,
+   "crack": 41805,
+   "open": 37009,
+   "hole": 25935
+  },
+  "R_D_calib": {
+   "background": 3375,
+   "crack": 21509,
+   "open": 56650,
+   "hole": 79234
+  },
+  "R_D_manual": {
+   "background": 0,
+   "crack": 1788,
+   "open": 150823,
+   "hole": 8157
+  }
+ }
+}
