@@ -1,0 +1,26 @@
+# revision3/ — analyses added after the adversarial pre-submission review (release v1.1.2)
+
+Three analyses added to the corrected manuscript (Access-2026-52990) after an adversarial pre-submission review of the corrected files: two pre-registered analyses (A12, A13) and one outcome-informed follow-up (A14). All are confined to the synthetic data; none changes any previously reported trained configuration or number.
+
+## A12 — stage-wise interventions between model A and a Python implementation of the reference pipeline (manuscript Sec. VI-E; Supp. S8.14)
+- `scripts/A12_FACTORIAL_PREREG.md` — pre-registration (commit 8c2fe60 of the working repository), registered after the paired results of S8.13 and the specification of R were known and before any intervention image or result was inspected.
+- `scripts/A12_AMENDMENT_1.md` — outcome-informed amendment (commit 420723d): joint noise-and-blur substitutions, registered after the single-block results and before the joint variants were generated.
+- `scripts/a12_rport.py` — Python implementation of `only_add_noise.m` (level 2) stage by stage, per-image parameter draws, and stage-wise composition with model A's torch stages.
+- `scripts/a12_run.py`, `scripts/a12_selftest.py`, `scripts/a12_aggregate.py` — generation + evaluation (500 held-out images, 8 configurations × 20 checkpoints), self-test (closure checks, kernel unit cases, image-statistic diagnostics), aggregation per the pre-registration.
+- `results/a12/a12_per_image.csv.gz` — per image, run, configuration and variant: normal-tile pixel FPR; normal-tile FAR, defect-tile recall and class-correct recall at τ = 0.25/0.5/0.75.
+- `results/a12/a12_summary.json`, `a12_summary.md` — aggregated values (median over runs of per-run medians), behavioral-agreement gate, normalized contrasts, A-like flags.
+- `results/a12/a12_manifest.json` — image list, variant manifest, θ per configuration, checkpoint paths with sizes and mtimes, library versions, input hash, git head; `a12_params.json` — per-image reference parameter vectors; `a12_fidelity_stats.json` — image-statistic diagnostics; `selftest.log`. Example images are not deposited (the images are derived from the confidential template crops).
+
+## A13 — label-assisted sensitivity of the calibration objective to the pixel support (manuscript Sec. IV-C, VIII-C; Supp. S8.15)
+- `scripts/A13_SUPPORT_PREREG.md` — pre-registration (commit b64658b), registered after a 20-step code smoke test and before the full 2000-step U/N/C runs.
+- `scripts/a13_support.py` — `SupportCalibrationLoss`: the archived `CalibrationLoss` with per-image pixel supports U (original), N (normal-labelled tiles) and C (label-unrestricted control); the U arm reproduces the archived objective exactly.
+- `scripts/a13_run.py`, `scripts/a13_aggregate.py` — v5c protocol under each support (3 seeds), aggregation.
+- `results/a13/<U|N|C>/seed_<s>/calib_trace.csv`, `theta.json` — per-step traces and reached parameters; `results/a13/<arm>/a13_result.json`, `support_and_real_stats.json` — loss components at θ_manual and the published v5c θ, reference statistic vectors, support counts and window energies; `results/a13/a13_summary.json`, `a13_summary.md`; `smoke.log`.
+
+## A14 — decomposition of the prenorm shift gain: fixed affine signal transform x relative pre-blur noise law (manuscript Sec. VI-B, App. A; Supp. S8.16)
+- `scripts/A14_PRENORM_DECOMP_PREREG.md` — registration (commit cf126cd, 2026-10-18 23:59:49 UTC) as an outcome-informed follow-up, after the original ablation, equal-norm results and generation-only diagnostics were known and before any new detector was trained. D_manual (p42r_v2 manual) and Prenorm only (p43 ab1) runs are reused as historical controls.
+- `scripts/a14_train.py` — training script derived from `diffpipe/phase4/run_p43_ablation.py`; only the placement of the prenorm affine map relative to degradation stages 1-2 differs between conditions (`c1`: affine after the noise stages; `c2`: affine before and its inverse after; `dman_r`/`ab1_r`: same-seed reproduction runs).
+- `scripts/a14_selftest_diag.py` — bit-exact check of the D and P paths against `DegradationPipeline.forward`, closed-form check of the C1/C2 stage-2 outputs, and 50-image generation diagnostics; `scripts/a14_counts.py`, `scripts/a14_analysis.py`, `scripts/a14_launch.sh` — dataset-level confusion counts, registered analysis, launcher.
+- `results/a14/a14_results.json` — condition means/SDs, contrasts, bootstrap intervals, Welch tests with Holm adjustment, gain ratios, registered classification, reproduction check, final-window instability counts; `a14_counts.csv` — per-run dataset-level counts for the new runs (historical counts: `f1_recompute_results/counts/per_image_counts.csv`); `selftest_diag.json`; `runs/<condition>/run<i>/results.json` — per-run training records (checkpoints not included); logs.
+
+The working-repository commits named above identify records in the private analysis repository. This public release contains copies of the protocol files and associated scripts and outputs; the private repository's commit history is not included. The reported registration chronology is based on the authors' audit of the working-repository records and run timestamps, as described in Appendix A and Supplementary S8.12.

@@ -8,8 +8,8 @@ authors:
     given-names: Janghoon
   - family-names: Lee
     given-names: Sangyul
-version: 1.1.0
-date-released: 2026-10-16
+version: 1.1.2
+date-released: 2026-10-20
 license: MIT
 doi: 10.5281/zenodo.23368374
 repository-code: "https://github.com/hansungsangyul/hbm2-calibration"
@@ -25,4 +25,4 @@ preferred-citation:
       given-names: Sangyul
   journal: "IEEE Access"
   year: 2026
-  notes: "submitted (Access-2026-42084)"
+  notes: "submitted (Access-2026-52990; corrected resubmission of Access-2026-42084)"

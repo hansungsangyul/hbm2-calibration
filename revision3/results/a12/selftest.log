@@ -1,0 +1,32 @@
+(1) D_manual image_0251 max|diff| vs a8_paired = 0.00e+00
+(1) D_manual image_0254 max|diff| vs a8_paired = 0.00e+00
+(1) D_manual image_0258 max|diff| vs a8_paired = 0.00e+00
+(1) D_calib image_0251 max|diff| vs a8_paired = 1.79e-07
+(1) D_calib image_0254 max|diff| vs a8_paired = 2.38e-07
+(1) D_calib image_0258 max|diff| vs a8_paired = 2.38e-07
+(1) D_sigma_p image_0251 max|diff| vs a8_paired = 2.38e-07
+(1) D_sigma_p image_0254 max|diff| vs a8_paired = 2.38e-07
+(1) D_sigma_p image_0258 max|diff| vs a8_paired = 2.38e-07
+(1b) all-R compose vs rport_full image_0251 max|diff| = 0.00e+00
+(1b) all-R compose vs rport_full image_0254 max|diff| = 0.00e+00
+(1b) all-R compose vs rport_full image_0258 max|diff| = 0.00e+00
+(1c) variant counts: {'D_manual': 16, 'AB-1': 18, 'AB-2': 16, 'AB-3': 16, 'D_calib': 18, 'D_v5e': 20, 'D_sigma_p': 20, 'z-score': 16}
+(2) motion(5,0) shape (1, 5) row [0.2 0.2 0.2 0.2 0.2]
+(2) motion(5,90) shape (5, 1) col [0.2 0.2 0.2 0.2 0.2]
+(2) motion(6,45) shape (5, 5) sum 0.999999999999999 
+ [[0.     0.     0.     0.0438 0.1004]
+ [0.     0.     0.0438 0.1496 0.0438]
+ [0.     0.0438 0.1496 0.0438 0.    ]
+ [0.0438 0.1496 0.0438 0.     0.    ]
+ [0.1004 0.0438 0.     0.     0.    ]]
+(2) motion(1,30) [[1.]]
+(3) R-port 17.4 ms/image
+(4) mean         clean: 0.3758 [0.3750,0.3765]  V_R: 0.3625 [0.3372,0.3991]  V_P: 0.3673 [0.3438,0.3966]  V_F: 0.3616 [0.3611,0.3620]
+(4) std          clean: 0.2511 [0.2505,0.2514]  V_R: 0.1248 [0.1109,0.1391]  V_P: 0.1232 [0.1122,0.1376]  V_F: 0.1215 [0.1209,0.1218]
+(4) flat_std     clean: 0.0117 [0.0117,0.0117]  V_R: 0.0335 [0.0283,0.0407]  V_P: 0.0339 [0.0283,0.0407]  V_F: 0.0321 [0.0318,0.0323]
+(4) block_h      clean: 0.6812 [0.6751,0.6893]  V_R: 1.1428 [1.0594,1.2299]  V_P: 1.1468 [1.0705,1.2417]  V_F: 1.1556 [1.1498,1.1617]
+(4) block_v      clean: 0.9214 [0.9105,0.9304]  V_R: 1.1565 [1.0732,1.2826]  V_P: 1.1542 [1.0644,1.2695]  V_F: 1.1737 [1.1684,1.1788]
+(4) coherence    clean: 0.3391 [0.3267,0.3470]  V_R: 0.4048 [0.2964,0.5786]  V_P: 0.4089 [0.2858,0.6046]  V_F: 0.4367 [0.4340,0.4397]
+(4) orientation  clean: -0.1237 [-0.4214,0.1871]  V_R: 14.7296 [3.9892,38.0282]  V_P: 15.4608 [2.8172,35.0727]  V_F: 20.7856 [20.5164,21.0835]
+(4) grad_mean    clean: 0.5760 [0.5736,0.5797]  V_R: 0.3194 [0.2730,0.3860]  V_P: 0.3191 [0.2749,0.3735]  V_F: 0.3059 [0.3053,0.3067]
+SELFTEST_DONE

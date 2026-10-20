@@ -1,0 +1,16 @@
+[U] support pixels/image median 163280 of 163280; vm patches median 2535
+[U] repro image 0: archived L_vm=0.057323 L_nps=2.771313 L_rad=0.005959 L_hist=0.000802 | support L_vm=0.057323 L_nps=2.771313 L_rad=0.005959 L_hist=0.000802
+[U] repro image 1: archived L_vm=0.055882 L_nps=2.839148 L_rad=0.006360 L_hist=0.000808 | support L_vm=0.055882 L_nps=2.839148 L_rad=0.006360 L_hist=0.000808
+[U] repro image 2: archived L_vm=0.058980 L_nps=2.758859 L_rad=0.006407 L_hist=0.000820 | support L_vm=0.058980 L_nps=2.758859 L_rad=0.006407 L_hist=0.000820
+[U] max |diff| of loss parts vs archived CalibrationLoss = 0.00e+00
+[U] parts@manual {'L_vm': 0.057948417775332925, 'L_nps': 2.7250227999687193, 'L_rad': 0.006212882762774825, 'L_hist': 0.0008049891225527972}  parts@calib {'L_vm': 0.026246993392705916, 'L_nps': 0.010728974288795143, 'L_rad': 0.002670728479279205, 'L_hist': 0.0005270754083176143}
+[U] seed 970000 done: fwhm=2.3256 alpha=0.2981 in_low=0.2432 in_high=0.7064 ring_strength=0.1404 ring_n=7.9197 elapsed_s=26.7357 fwhm_last200_mean=2.4061
+[U] A13_DONE
+[N] support pixels/image median 44044 of 163280; vm patches median 534
+[N] parts@manual {'L_vm': 0.28340515118092297, 'L_nps': 2.5479660934209822, 'L_rad': 0.08637039928697049, 'L_hist': 0.0007996021545841358}  parts@calib {'L_vm': 0.12425647985190152, 'L_nps': 0.0253019427950494, 'L_rad': 0.08797892866656185, 'L_hist': 0.0005439597596705425}
+[N] seed 970000 done: fwhm=2.3273 alpha=0.2999 in_low=0.2415 in_high=0.7073 ring_strength=0.1396 ring_n=7.9390 elapsed_s=25.3773 fwhm_last200_mean=2.4075
+[N] A13_DONE
+[C] support pixels/image median 44044 of 163280; vm patches median 537
+[C] parts@manual {'L_vm': 0.2854282683134079, 'L_nps': 2.5404736936092376, 'L_rad': 0.07245393824065104, 'L_hist': 0.0008437540550949051}  parts@calib {'L_vm': 0.1321753249876201, 'L_nps': 0.02653016538359225, 'L_rad': 0.07305556353880092, 'L_hist': 0.0005503951277933083}
+[C] seed 970000 done: fwhm=2.3255 alpha=0.3005 in_low=0.2408 in_high=0.7076 ring_strength=0.1412 ring_n=7.9060 elapsed_s=39.3815 fwhm_last200_mean=2.4068
+[C] A13_DONE
