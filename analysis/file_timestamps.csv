@@ -8,3 +8,12 @@ revision1/rev2/a14/runs/dman_r/run0/results.json,2026-10-19 00:36:23,Supp. S8.16
 revision1/rev2/a14/runs/ab1_r/run0/results.json,2026-10-19 01:12:41,Supp. S8.16 (first A14 run records)
 revision1/rev2/a14/runs/c1/run0/results.json,2026-10-19 01:48:56,Supp. S8.16 (first A14 run records)
 p3stats/a13/smoke.log,2026-10-17 14:03:50,Supp. S8.15 (smoke test log)
+p3stats/a8_paired (first A-degraded image file),2026-10-16 00:20:40,App. A / Supp. S8.12 (A-degraded images generated before 2e3e610)
+p3stats/a8_paired (last A-degraded image file),2026-10-16 00:22:37,App. A / Supp. S8.12
+p3stats/a8_paired/a8_paired_per_image.csv (A-side evaluation output),2026-10-16 03:38:21,App. A (evaluation after 2e3e610)
+p3stats/a12/a12_manifest.json (A12 generation manifest),2026-10-17 13:47:24,App. A (8c2fe60)
+p3stats/a12/a12_run.log (A12 single-block run log),2026-10-17 21:42:05,App. A (8c2fe60; amendment 420723d)
+p3stats/a12/a12_am1.log (A12 joint-variant run log),2026-10-17 22:35:54,App. A (joint variants after 420723d)
+p3stats/a13/U/seed_970000/calib_trace.csv (first full A13 trace),2026-10-17 15:20:09,Supp. S8.15 (full runs after b64658b)
+p3stats/a13/N/seed_970000/calib_trace.csv (first full A13 trace),2026-10-17 15:18:34,Supp. S8.15 (full runs after b64658b)
+p3stats/a13/C/seed_970000/calib_trace.csv (first full A13 trace),2026-10-17 15:18:45,Supp. S8.15 (full runs after b64658b)
