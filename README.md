@@ -59,7 +59,7 @@ The notes below identify the sources used for the manuscript, the limitations of
 
 - `revision1/a1_weights/a1_summary.json` and `a1_results.csv` list one seed for weighting W4; all three W4 runs are in `revision1/a1_weights/runs/`, and Supplementary S8.1 reports their mean.
 - In the five protocol files `revision1/*/PREREG_a*.md`, every non-ASCII (Korean) character is stored as `?`, as in the committed versions; Supplementary S8.12 assesses each rule against the committed text and the companion archival records.
-- In `revision1/rev2/PREREG_rev2.md`, non-ASCII symbols (dashes, ≥, ×, σ) are garbled as in the committed version; for example `0001??050` stands for 0001–0050, `0051??250` for 0051–0250 and `0251??000` for 0251–2000.
+- In `revision1/rev2/PREREG_rev2.md`, symbols and portions of numerical expressions are garbled in the committed text. The implemented image ranges corresponding to `0001??050`, `0051??250` and `0251??000` are 0001–0050, 0051–0250 and 0251–2000, respectively.
 - `analysis/prereg_audit.csv`, item 5, lists recovery thresholds (f < 5%, α < 5%) that differ from those in `diffpipe/phase3/run_phase3.py`, which hard-codes the thresholds reported in Table 4.
 - `revision1/boot_fix/boot_fix.csv` gives the intervals of the pre-specified resampling correction used in the main text. `revision1/holm/holm.py` draws the separate resamples behind `revision1/holm/holm_table.csv` (Supplementary S8.7).
 - `analysis/real_fpr_v5e_zscore.csv`, the D_calib rows without intervention in `revision1/a5_realgap/a5_results.json`, and the pre-correction summaries in `revision1/rev2/a7/` used double prenorm for prenorm-trained configurations; `revision1/rev2/a7fix/` holds the corrected values.
@@ -70,7 +70,7 @@ The notes below identify the sources used for the manuscript, the limitations of
 - The `osc_amp` column of `diffpipe/phase5/phase5_runs_level.csv` is a summary amplitude; the threshold re-adjudication of Supplementary S4 is computed from the last ten entries of `f1_filt` in each run record.
 - `scipy.signal.medfilt`, used for the median-filtered validation F1, pads the trajectory ends with zeros; item 18 of `analysis/prereg_audit.csv` describes the boundary handling as keeping the original end values.
 - The lower-endpoint runs (AB-4), the D_full runs and the first phase-map cell use seeds starting at 800000 (AB-4 and D_full both 800000–800019).
-- `diffpipe/training_support/config.py` sets mixed precision and 100 epochs as defaults; the training scripts use neither and run 41 epochs.
+- `diffpipe/training_support/config.py` sets mixed precision and 100 epochs as defaults. The principal U-Net detector comparisons use full-precision training for 41 epochs, and the phase-map runs last at most 41 epochs with early termination under the instability criteria.
 - `revision2/results/fig2_pair.json` and `revision2/scripts/a8_fig2_pair.py` were corrected in v1.1.5: class 2 is hole and class 3 is open, as in the training data.
 
 ## License
