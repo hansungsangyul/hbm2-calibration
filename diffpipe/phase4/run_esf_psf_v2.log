@@ -1,0 +1,42 @@
+/mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/run_esf_psf.py:119: RankWarning: Polyfit may be poorly conditioned
+  poly = np.polyfit(xs_px.astype(float), ys.astype(float), 1)
+/mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/run_esf_psf.py:119: RankWarning: Polyfit may be poorly conditioned
+  poly = np.polyfit(xs_px.astype(float), ys.astype(float), 1)
+=================================================================
+Phase 1: Self-validation (fwhm=2.5 synthetic blur, seeds 960000-960004)
+  PSF kernel size: 7×7
+  σ = 1.0616 px  target FWHM = 2.5
+  [selfval_00] n_valid=79  median_FWHM=1.857  mean=1.954  std=0.495  OK
+  [selfval_01] n_valid=82  median_FWHM=2.433  mean=2.111  std=0.514  OK
+  [selfval_02] n_valid=38  median_FWHM=2.412  mean=2.287  std=0.726  OK
+  [selfval_03] n_valid=29  median_FWHM=2.377  mean=2.127  std=0.473  OK
+  [selfval_04] n_valid=7  median_FWHM=2.508  mean=2.356  std=0.475  INSUFFICIENT [R²→0.90]
+
+Self-validation summary:
+  valid images: 4/5
+  overall median FWHM: 2.395
+  target: [2.25, 2.75]  → PASS ✅
+
+=================================================================
+Phase 2: Real measurement (HBM_dirty2 img_0001 to img_0005)
+  [dirty2_img00] n_valid=102  median_FWHM=1.729  mean=1.747  std=0.713  OK
+  [dirty2_img01] n_valid=15  median_FWHM=0.393  mean=0.700  std=0.493  INSUFFICIENT [R²→0.90]
+  [dirty2_img02] n_valid=0  median_FWHM=nan  mean=nan  std=nan  INSUFFICIENT [R²→0.90]
+  [dirty2_img03] n_valid=432  median_FWHM=2.091  mean=2.358  std=1.025  OK
+  [dirty2_img04] n_valid=135  median_FWHM=1.696  mean=1.783  std=0.688  OK
+
+Real measurement summary:
+  valid images: 3/5
+  individual medians: ['1.729', '2.091', '1.696']
+  overall median FWHM: 1.729
+
+=================================================================
+§6 판정표 입력:
+  ESF=1.729: [1.1,1.7]·[2.2,2.8] 외부 → Row 5 (PENDING_CONSULTATION)
+
+Saved: /mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/esf_psf_measurement.json
+Plots: /mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/esf_plots/
+
+지시 23 ESF PSF measurement complete.
+  Self-val: PASS  sv_median=2.395
+  Real median FWHM: 1.729  →  Row5: ESF=1.729: [1.1,1.7]·[2.2,2.8] 외부 → Row 5 (PENDING_CONSULTATION)

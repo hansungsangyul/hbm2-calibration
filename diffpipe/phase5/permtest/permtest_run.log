@@ -1,0 +1,61 @@
+Loaded 150 rows  sigma_g: [np.float64(0.01025), np.float64(0.0205), np.float64(0.041), np.float64(0.082), np.float64(0.164)]  fwhm: [np.float64(0.0), np.float64(0.625), np.float64(1.25), np.float64(2.5), np.float64(5.0), np.float64(10.0)]
+
+=== G0 데이터 정합성 ===
+  fwhm=2.5: [3, 2, 1, 1, 3]  기대=[3, 2, 1, 1, 3]  OK
+  fwhm=5.0: [2, 4, 4, 2, 3]  기대=[2, 4, 4, 2, 3]  OK
+  fwhm=10.0: [5, 5, 5, 3, 1]  기대=[5, 5, 5, 3, 1]  OK
+  fwhm=0.0: [2, 3, 0, 0, 2]  기대=[2, 3, 0, 0, 2]  OK
+  총 발산: 65/150  기대=65/150  OK
+[G0 PASS] 데이터 정합성 확인됨
+
+=== diverged ===  obs SS=37125.00  F=1.6230
+  [diverged/raw] 50000/200000  rate=25797/s  ETA=6s
+  [diverged/raw] 100000/200000  rate=25766/s  ETA=4s
+  [diverged/raw] 150000/200000  rate=25772/s  ETA=2s
+  [diverged/raw] 200000/200000  rate=25777/s  ETA=0s
+  [diverged/raw] DONE 7.8s  SS: b=26391 p=1.3196e-01  F: b=11786 p=5.8935e-02
+  [diverged/resid] 50000/200000  rate=25862/s  ETA=6s
+  [diverged/resid] 100000/200000  rate=25845/s  ETA=4s
+  [diverged/resid] 150000/200000  rate=25853/s  ETA=2s
+  [diverged/resid] 200000/200000  rate=25843/s  ETA=0s
+  [diverged/resid] DONE 7.7s  SS: b=6950 p=3.4755e-02  F: b=11776 p=5.8885e-02
+
+=== final_f1 ===  obs SS=28285.45  F=2.4149
+  [final_f1/raw] 50000/200000  rate=25868/s  ETA=6s
+  [final_f1/raw] 100000/200000  rate=25877/s  ETA=4s
+  [final_f1/raw] 150000/200000  rate=25879/s  ETA=2s
+  [final_f1/raw] 200000/200000  rate=25884/s  ETA=0s
+  [final_f1/raw] DONE 7.7s  SS: b=159427 p=7.9714e-01  F: b=381 p=1.9100e-03
+  [final_f1/resid] 50000/200000  rate=25835/s  ETA=6s
+  [final_f1/resid] 100000/200000  rate=25873/s  ETA=4s
+  [final_f1/resid] 150000/200000  rate=25907/s  ETA=2s
+  [final_f1/resid] 200000/200000  rate=25924/s  ETA=0s
+  [final_f1/resid] DONE 7.7s  SS: b=151 p=7.6000e-04  F: b=382 p=1.9150e-03
+
+=== osc_amp ===  obs SS=44810.79  F=1.4436
+  [osc_amp/raw] 50000/200000  rate=25911/s  ETA=6s
+  [osc_amp/raw] 100000/200000  rate=25950/s  ETA=4s
+  [osc_amp/raw] 150000/200000  rate=25971/s  ETA=2s
+  [osc_amp/raw] 200000/200000  rate=25980/s  ETA=0s
+  [osc_amp/raw] DONE 7.7s  SS: b=49349 p=2.4675e-01  F: b=23376 p=1.1688e-01
+  [osc_amp/resid] 50000/200000  rate=25971/s  ETA=6s
+  [osc_amp/resid] 100000/200000  rate=25973/s  ETA=4s
+  [osc_amp/resid] 150000/200000  rate=25966/s  ETA=2s
+  [osc_amp/resid] 200000/200000  rate=25986/s  ETA=0s
+  [osc_amp/resid] DONE 7.7s  SS: b=15093 p=7.5470e-02  F: b=23115 p=1.1558e-01
+
+=== grv5 ===  obs SS=5704.49  F=1.1230
+  [grv5/raw] 50000/200000  rate=25857/s  ETA=6s
+  [grv5/raw] 100000/200000  rate=25863/s  ETA=4s
+  [grv5/raw] 150000/200000  rate=25850/s  ETA=2s
+  [grv5/raw] 200000/200000  rate=25854/s  ETA=0s
+  [grv5/raw] DONE 7.7s  SS: b=200000 p=1.0000e+00  F: b=67044 p=3.3522e-01
+  [grv5/resid] 50000/200000  rate=25809/s  ETA=6s
+  [grv5/resid] 100000/200000  rate=25825/s  ETA=4s
+  [grv5/resid] 150000/200000  rate=25840/s  ETA=2s
+  [grv5/resid] 200000/200000  rate=25854/s  ETA=0s
+  [grv5/resid] DONE 7.7s  SS: b=51617 p=2.5809e-01  F: b=66936 p=3.3468e-01
+
+총 소요: 61.8s
+Saved: /mnt/gstore/home/xiangyue/HBM_paper2/v0.9/permtest_results.json
+Saved: /mnt/gstore/home/xiangyue/HBM_paper2/v0.9/permtest_replication.md

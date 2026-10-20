@@ -1,0 +1,42 @@
+=================================================================
+Phase 1: Self-validation (fwhm=2.5 synthetic blur, seeds 960000-960004)
+  PSF kernel size: 7×7
+  σ = 1.0616 px  target FWHM = 2.5
+  [selfval_00] n_valid=54  median_FWHM=2.090  mean=1.756  std=0.608  OK
+  [selfval_01] n_valid=60  median_FWHM=2.144  mean=1.962  std=0.497  OK
+  [selfval_02] n_valid=35  median_FWHM=2.095  mean=1.936  std=0.535  OK
+  [selfval_03] n_valid=24  median_FWHM=2.115  mean=1.912  std=0.450  OK
+  [selfval_04] n_valid=5  median_FWHM=2.240  mean=2.305  std=0.137  INSUFFICIENT
+
+Self-validation summary:
+  valid images: 4/5
+  overall median FWHM: 2.105
+  target: [2.25, 2.75]  → FAIL ✗
+
+[WARN] Self-validation failed. Real measurement may be unreliable.
+
+=================================================================
+Phase 2: Real measurement (HBM_dirty2 img_0001 to img_0005)
+  [dirty2_img00] n_valid=32  median_FWHM=1.590  mean=1.684  std=0.826  OK
+  [dirty2_img01] n_valid=0  median_FWHM=nan  mean=nan  std=nan  INSUFFICIENT
+/mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/run_esf_psf.py:144: RankWarning: Polyfit may be poorly conditioned
+  poly = np.polyfit(xs_px.astype(float), ys.astype(float), 1)
+  [dirty2_img02] n_valid=0  median_FWHM=nan  mean=nan  std=nan  INSUFFICIENT
+  [dirty2_img03] n_valid=220  median_FWHM=1.956  mean=2.285  std=1.178  OK
+  [dirty2_img04] n_valid=57  median_FWHM=1.691  mean=1.825  std=0.945  OK
+
+Real measurement summary:
+  valid images: 3/5
+  individual medians: ['1.590', '1.956', '1.691']
+  overall median FWHM: 1.691
+
+=================================================================
+§6 판정표 입력:
+  ESF=1.691 ∈ [1.1,1.7] → Row 3 후보 (v5 fwhm=1.42 지지)
+
+Saved: /mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/esf_psf_measurement.json
+Plots: /mnt/gstore/home/xiangyue/HBM_paper2/diffpipe/phase4/esf_plots/
+
+지시 23 ESF PSF measurement complete.
+  Self-val: FAIL  sv_median=2.105
+  Real median FWHM: 1.691  →  Row3: ESF=1.691 ∈ [1.1,1.7] → Row 3 후보 (v5 fwhm=1.42 지지)
