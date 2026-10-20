@@ -13,8 +13,8 @@ for c in cfgs:
     preds[('R',c)]=predict(m,[(prep(R_img,'zscore') if mode=='zscore' else R_img).astype(np.float32)],bs=1)[0].numpy()  # raw input convention
     del m; torch.cuda.empty_cache()
 VAL=slice(3,317)
-COL={1:(0.0,0.45,0.70),2:(0.90,0.62,0.0),3:(0.80,0.47,0.65)}  # crack blue, open orange, hole purple (Okabe-Ito)
-NAMES={0:'background',1:'crack',2:'open',3:'hole'}
+COL={1:(0.0,0.45,0.70),2:(0.90,0.62,0.0),3:(0.80,0.47,0.65)}  # crack blue, hole orange, open purple (Okabe-Ito); class ids follow dataset.py: 1 crack, 2 hole, 3 open
+NAMES={0:'background',1:'crack',2:'hole',3:'open'}
 def overlay(ax,img,pred,title):
     ax.imshow(img[VAL],cmap='gray',vmin=0,vmax=1); ov=np.zeros((314,512,4))
     for k,cc in COL.items(): sel=(pred[VAL]==k); ov[sel]=(*cc,0.55)
@@ -33,7 +33,7 @@ for i,side in enumerate(['A','R']):
     for j,c in enumerate(cfgs):
         p=preds[(side,c)]; overlay(axes[i,j+1],imgs[('A',c)] if side=='A' else R_img,p,('$D_\\mathrm{calib}$' if c=='D_calib' else '$D_\\mathrm{manual}$')+f' prediction ({RUNS[c]})' if side=='A' else ''); grid(axes[i,j+1])
         comp={k:int((p[VAL]==k).sum()) for k in range(4)}; tot=sum(comp.values())
-        axes[i,j+1].set_xlabel(f"background {100*comp[0]/tot:.1f}%  crack {100*comp[1]/tot:.1f}%\nopen {100*comp[2]/tot:.1f}%  hole {100*comp[3]/tot:.1f}%",fontsize=6.2,labelpad=2)
+        axes[i,j+1].set_xlabel(f"background {100*comp[0]/tot:.1f}%  crack {100*comp[1]/tot:.1f}%\nhole {100*comp[2]/tot:.1f}%  open {100*comp[3]/tot:.1f}%",fontsize=6.2,labelpad=2)
 n_normal=sum(1 for it in lab if it['label']=='normal')
 fig.suptitle(f'{IMG}: {n_normal} normal tiles (white outline), {100-n_normal} defect tiles (dotted)',fontsize=7.5,y=0.995)
 plt.tight_layout(h_pad=1.4); out=Path('/mnt/gstore/home/xiangyue/p3stats/a8_paired'); plt.savefig(out/'fig2_pair.pdf'); plt.savefig(out/'fig2_pair.png',dpi=150)

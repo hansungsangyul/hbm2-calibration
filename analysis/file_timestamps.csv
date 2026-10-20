@@ -1,0 +1,10 @@
+path_in_working_repository,mtime_utc,cited_in
+revision1/a4_metrics/PREREG_a4.md,2026-09-25 16:42:03,Supp. S8.12 (A4 count re-analysis)
+revision1/a4_metrics/run_a4_bootstrap.py,2026-09-25 16:42:03,Supp. S8.12 (A4 count re-analysis)
+revision1/a4_metrics/perclass_precision_recall.csv,2026-09-25 16:42:56,Supp. S8.12 (A4 count re-analysis)
+revision1/a4_metrics/bootstrap_summary.csv,2026-09-25 16:42:56,Supp. S8.12 (A4 count re-analysis)
+revision1/a4_metrics/a4.log,2026-09-25 16:42:56,Supp. S8.12 (A4 count re-analysis)
+revision1/rev2/a14/runs/dman_r/run0/results.json,2026-10-19 00:36:23,Supp. S8.16 (first A14 run records)
+revision1/rev2/a14/runs/ab1_r/run0/results.json,2026-10-19 01:12:41,Supp. S8.16 (first A14 run records)
+revision1/rev2/a14/runs/c1/run0/results.json,2026-10-19 01:48:56,Supp. S8.16 (first A14 run records)
+p3stats/a13/smoke.log,2026-10-17 14:03:50,Supp. S8.15 (smoke test log)
