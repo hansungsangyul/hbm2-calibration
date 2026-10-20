@@ -1,0 +1,162 @@
+[
+  {
+    "response": "diverged",
+    "stat": "SS",
+    "perm": "raw",
+    "obs_stat": 37125.0,
+    "b": 26391,
+    "p": 0.131959340203299,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/diverged_raw_SS.npy"
+  },
+  {
+    "response": "diverged",
+    "stat": "F",
+    "perm": "raw",
+    "obs_stat": 1.6229508196721312,
+    "b": 11786,
+    "p": 0.058934705326473366,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/diverged_raw_F.npy"
+  },
+  {
+    "response": "diverged",
+    "stat": "SS",
+    "perm": "resid",
+    "obs_stat": 37125.0,
+    "b": 6950,
+    "p": 0.03475482622586887,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/diverged_resid_SS.npy"
+  },
+  {
+    "response": "diverged",
+    "stat": "F",
+    "perm": "resid",
+    "obs_stat": 1.6229508196721312,
+    "b": 11776,
+    "p": 0.058884705576472116,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/diverged_resid_F.npy"
+  },
+  {
+    "response": "final_f1",
+    "stat": "SS",
+    "perm": "raw",
+    "obs_stat": 28285.45333333333,
+    "b": 159427,
+    "p": 0.7971360143199284,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/final_f1_raw_SS.npy"
+  },
+  {
+    "response": "final_f1",
+    "stat": "F",
+    "perm": "raw",
+    "obs_stat": 2.4149181522209324,
+    "b": 381,
+    "p": 0.0019099904500477498,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/final_f1_raw_F.npy"
+  },
+  {
+    "response": "final_f1",
+    "stat": "SS",
+    "perm": "resid",
+    "obs_stat": 28285.45333333333,
+    "b": 151,
+    "p": 0.0007599962000189999,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/final_f1_resid_SS.npy"
+  },
+  {
+    "response": "final_f1",
+    "stat": "F",
+    "perm": "resid",
+    "obs_stat": 2.4149181522209324,
+    "b": 382,
+    "p": 0.0019149904250478748,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/final_f1_resid_F.npy"
+  },
+  {
+    "response": "osc_amp",
+    "stat": "SS",
+    "perm": "raw",
+    "obs_stat": 44810.786666666674,
+    "b": 49349,
+    "p": 0.2467487662561687,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/osc_amp_raw_SS.npy"
+  },
+  {
+    "response": "osc_amp",
+    "stat": "F",
+    "perm": "raw",
+    "obs_stat": 1.4435658661672672,
+    "b": 23376,
+    "p": 0.1168844155779221,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/osc_amp_raw_F.npy"
+  },
+  {
+    "response": "osc_amp",
+    "stat": "SS",
+    "perm": "resid",
+    "obs_stat": 44810.786666666674,
+    "b": 15093,
+    "p": 0.07546962265188674,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/osc_amp_resid_SS.npy"
+  },
+  {
+    "response": "osc_amp",
+    "stat": "F",
+    "perm": "resid",
+    "obs_stat": 1.4435658661672672,
+    "b": 23115,
+    "p": 0.11557942210288949,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/osc_amp_resid_F.npy"
+  },
+  {
+    "response": "grv5",
+    "stat": "SS",
+    "perm": "raw",
+    "obs_stat": 5704.493333333338,
+    "b": 200000,
+    "p": 1.0,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/grv5_raw_SS.npy"
+  },
+  {
+    "response": "grv5",
+    "stat": "F",
+    "perm": "raw",
+    "obs_stat": 1.123049664006721,
+    "b": 67044,
+    "p": 0.3352233238833806,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/grv5_raw_F.npy"
+  },
+  {
+    "response": "grv5",
+    "stat": "SS",
+    "perm": "resid",
+    "obs_stat": 5704.493333333338,
+    "b": 51617,
+    "p": 0.25808870955645224,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/grv5_resid_SS.npy"
+  },
+  {
+    "response": "grv5",
+    "stat": "F",
+    "perm": "resid",
+    "obs_stat": 1.123049664006721,
+    "b": 66936,
+    "p": 0.3346833265833671,
+    "seed": 42,
+    "nulldist": "/mnt/gstore/home/xiangyue/HBM_paper2/v0.9/nulldist/grv5_resid_F.npy"
+  }
+]

@@ -1,6 +1,6 @@
 # Representative checkpoints (not part of the git tree)
 
-One terminal U-Net checkpoint (run 0 of 20) per training configuration of Section VI of the paper,
+One terminal U-Net checkpoint (run 0 of 20) for each of the eight configurations in Table 9 of the paper,
 with the run's `results.json`. Files are PyTorch `state_dict`s (~124 MB each); see `SHA256SUMS.txt`.
 
 | File | Configuration (paper) | Source run directory |
@@ -14,4 +14,4 @@ with the run's `results.json`. Files are PyTorch `state_dict`s (~124 MB each); s
 | D_sigma_post_run0_final.pth | D_sigma_post (D_σp) | diffpipe/phase4/v77/exp3_runs/run0 |
 | zscore_run0_final.pth | z-score | diffpipe/phase4/v77/exp4_runs/run0 |
 
-These are distributed as release assets / a separate Zenodo record because of their size.
+Because of their size, they are distributed as assets of GitHub release v1.0.0.
